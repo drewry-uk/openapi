@@ -1,0 +1,12 @@
+title: Error
+required:
+  - code
+  - detail
+type: object
+properties:
+  code:
+    title: Code
+    type: string
+  detail:
+    title: Detail
+    type: string

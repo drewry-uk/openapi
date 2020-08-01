@@ -1,0 +1,16 @@
+title: Health
+required:
+  - status
+  - serverDateTime
+type: object
+properties:
+  status:
+    title: Status
+    enum:
+      - ok
+      - Error
+    type: string
+  serverDateTime:
+    title: Serverdatetime
+    type: string
+    format: date-time

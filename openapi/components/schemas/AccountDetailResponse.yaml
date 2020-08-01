@@ -1,0 +1,13 @@
+title: AccountDetailResponse
+required:
+  - errors
+  - data
+type: object
+properties:
+  errors:
+    title: Errors
+    type: array
+    items:
+      $ref: ./Error.yaml
+  data:
+    $ref: ./Account.yaml

@@ -1,0 +1,21 @@
+title: DataRevision
+required:
+  - revisionNumber
+  - revisionPublishedAt
+  - dataPoints
+type: object
+properties:
+  revisionNumber:
+    title: Revisionnumber
+    type: integer
+  revisionPublishedAt:
+    title: Revisionpublishedat
+    type: string
+    format: date-time
+  numberOfAssessors:
+    $ref: ./Assessors.yaml
+  dataPoints:
+    title: Datapoints
+    type: array
+    items:
+      $ref: ./DataPoint.yaml

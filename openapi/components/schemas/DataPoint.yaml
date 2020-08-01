@@ -1,0 +1,23 @@
+title: DataPoint
+required:
+  - index
+  - deliveryPeriod
+  - derivedPrices
+type: object
+properties:
+  index:
+    title: Index
+    type: integer
+  deliveryPeriod:
+    $ref: ./DeliveryPeriod.yaml
+  yourAssessedPrice:
+    $ref: ./AssessedPrice.yaml
+  derivedPrices:
+    title: Derivedprices
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        anyOf:
+          - type: string
+          - type: integer

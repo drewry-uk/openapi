@@ -1,37 +1,13 @@
 {
-  "name": "@drewry/openapi",
-  "version": "1.0.2",
-  "description": "Drewry.co.uk Container Freight Index API",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"test\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/drewry-uk/openapi.git"
-  },
-  "keywords": [
-    "freight.",
-    "supply",
-    "chain",
-    "logistics"
-  ],
-  "author": "SEE LICENSE",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/drewry-uk/openapi/issues"
-  },
-  "homepage": "https://github.com/drewry-uk/openapi#readme",
-  "devDependencies": {
-    "eslint": "^7.5.0",
-    "eslint-plugin-json": "^2.1.2",
-    "prettier": "^2.0.5",
-    "release-it": "^13.6.6",
-    "standard-changelog": "^2.0.24"
-  },
+  "name": "drewry-benchmark-freight-index-api",
+  "version": "1.0.0",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "express-request-id": "^1.4.1"
+    "@redocly/openapi-cli": "^1.0.0-beta.8"
+  },
+  "private": true,
+  "scripts": {
+    "start": "openapi preview-docs",
+    "build": "openapi bundle -o dist",
+    "test": "openapi validate"
   }
 }

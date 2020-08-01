@@ -1,0 +1,16 @@
+title: ContractListResponse
+required:
+  - errors
+  - data
+type: object
+properties:
+  errors:
+    title: Errors
+    type: array
+    items:
+      $ref: ./Error.yaml
+  data:
+    title: Data
+    type: array
+    items:
+      $ref: ./Contract.yaml

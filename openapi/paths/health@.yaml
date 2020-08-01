@@ -1,0 +1,13 @@
+get:
+  tags:
+    - Utilities
+  summary: Health
+  description: Use this to check if the API is alive. No authentication needed.
+  operationId: health_health__get
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Health.yaml

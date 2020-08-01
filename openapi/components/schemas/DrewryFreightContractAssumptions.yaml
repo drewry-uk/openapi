@@ -1,0 +1,39 @@
+title: DrewryFreightContractAssumptions
+required:
+  - vesselSizeInM3
+  - duration
+  - basin
+  - deliveryPeriod
+  - currency
+  - uom
+  - contractSize
+type: object
+properties:
+  vesselSizeInM3:
+    title: Vesselsizeinm3
+    type: integer
+  duration:
+    title: Duration
+    type: integer
+  basin:
+    title: Basin
+    enum:
+      - pacific
+      - atlantic
+    type: string
+  deliveryPeriod:
+    title: Deliveryperiod
+    type: string
+  currency:
+    title: Currency
+    enum:
+      - USD
+    type: string
+  uom:
+    title: Uom
+    enum:
+      - usd/day
+    type: string
+  contractSize:
+    title: Contractsize
+    type: integer

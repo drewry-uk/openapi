@@ -1,0 +1,34 @@
+title: Account
+required:
+  - client_id
+  - is_active
+  - organisation_uuid
+  - organisation_type
+  - default_vertical
+  - products
+type: object
+properties:
+  client_id:
+    title: Client Id
+    type: string
+    format: uuid
+  is_active:
+    title: Is Active
+    type: boolean
+  organisation_uuid:
+    title: Organisation Uuid
+    type: string
+    format: uuid
+  organisation_type:
+    title: Organisation Type
+    type: string
+  default_vertical:
+    title: Default Vertical
+    enum:
+      - drewry-freight
+    type: string
+  products:
+    title: Products
+    type: object
+    additionalProperties:
+      $ref: ./AccountProduct.yaml

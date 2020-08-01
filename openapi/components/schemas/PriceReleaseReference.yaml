@@ -1,0 +1,13 @@
+title: PriceReleaseReference
+required:
+  - id
+  - releaseDate
+type: object
+properties:
+  id:
+    title: Id
+    type: integer
+  releaseDate:
+    title: Releasedate
+    type: string
+    format: date
