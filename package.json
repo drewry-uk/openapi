@@ -23,7 +23,15 @@
   },
   "homepage": "https://github.com/drewry-uk/openapi#readme",
   "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-plugin-json": "^2.1.2",
     "prettier": "^2.0.5",
+    "release-it": "^13.6.6",
     "standard-changelog": "^2.0.24"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-request-id": "^1.4.1"
   }
 }
