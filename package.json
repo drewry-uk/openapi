@@ -1,6 +1,6 @@
 {
   "name": "drewry-benchmark-freight-index-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "@redocly/openapi-cli": "^1.0.0-beta.8",
     "openapi": "0.0.1-security"
