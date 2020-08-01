@@ -1,6 +1,6 @@
 {
   "name": "@drewry/openapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Drewry.co.uk Container Freight Index API",
   "main": "src/index.js",
   "scripts": {
