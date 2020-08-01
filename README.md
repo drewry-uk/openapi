@@ -10,14 +10,8 @@
 </p>
 <br>
 <br>
-<!-- FREIGHT TRUST BANNER IMAGE -->
+<!-- BANNER IMAGE -->
 <!-- Badges Start -->
-<p   align="center">
-<img   alt="Twitter Follow"   src="https://img.shields.io/twitter/follow/drewry?label=%40FreightTrustNet&style=social">
- <a   href="https://t.me/freighttrust">
- <img   alt="Webpage"   src="https://img.shields.io/badge/telegram-%40fwebpage-blue">
- </a>
-</p>
 <!-- Badges End -->
 <!-- HEADER AREA DEFAULTS END -->
 
