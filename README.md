@@ -1,22 +1,17 @@
 
-<!-- COPYRIGHT 2020 - FREIGHTTRUST AND CLEARING CORPORATION
-        ALL RIGHTS RESERVED 
+
+<!-- COPYRIGHT 2020 - DREWRY SHIPPING CONSULTANTS LTD ALL RIGHTS RESERVED
     -->
-<!-- FREIGHT TRUST HEADER AREA DEFAULTS  -->
-<!-- FREIGHT TRUST BANNER IMAGE -->
+<!-- HEADER AREA DEFAULTS  -->
+<!-- BANNER IMAGE -->
 <p   align="center">
 
-<img   src="https://raw.githubusercontent.com/freight-trust/branding/master/images/optimized_github_repo_card.png">
+<img src="https://raw.githubusercontent.com/drewry-uk/openapi/master/assets/drewry-banner.png">
 </p>
 <br>
-<!-- FREIGHT TRUST BANNER IMAGE -->
+<br>
+<!-- BANNER IMAGE -->
 <!-- Badges Start -->
-<p   align="center">
-<img   alt="Twitter Follow"   src="https://img.shields.io/twitter/follow/drewry?label=%40FreightTrustNet&style=social">
- <a   href="https://t.me/freighttrust">
- <img   alt="Webpage"   src="https://img.shields.io/badge/telegram-%40fwebpage-blue">
- </a>
-</p>
 <!-- Badges End -->
 <!-- HEADER AREA DEFAULTS END -->
 
