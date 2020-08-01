@@ -1,0 +1,198 @@
+{
+  "errors": [
+    {
+      "code": "<string>",
+      "detail": "<string>"
+    },
+    {
+      "code": "<string>",
+      "detail": "<string>"
+    }
+  ],
+  "data": [
+    {
+      "id": -78545487,
+      "contractId": "<string>",
+      "releaseDate": "1960-07-30",
+      "publishedAt": "1983-11-13T09:35:45.242Z",
+      "assessmentWindowClosedAt": "1956-11-16T13:43:56.442Z",
+      "assessmentWindowOpenedAt": "1962-09-05T07:47:17.323Z",
+      "data": [
+        {
+          "revisionNumber": -59876582,
+          "revisionPublishedAt": "1941-08-05T18:28:38.366Z",
+          "dataPoints": [
+            {
+              "index": 19532280,
+              "deliveryPeriod": {
+                "type": "days",
+                "startAt": "2016-02-05",
+                "endAt": "1947-08-21",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": -85195431.57117751,
+                "unit": "usdPerDay"
+              }
+            },
+            {
+              "index": -32136440,
+              "deliveryPeriod": {
+                "type": "days",
+                "startAt": "1962-02-26",
+                "endAt": "1942-11-22",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": -41020215.75973875,
+                "unit": "usdPerDay"
+              }
+            }
+          ],
+          "numberOfAssessors": {
+            "Drewry": 75186804
+          }
+        },
+        {
+          "revisionNumber": 2739818,
+          "revisionPublishedAt": "1996-05-22T02:39:25.060Z",
+          "dataPoints": [
+            {
+              "index": -7243873,
+              "deliveryPeriod": {
+                "type": "month",
+                "startAt": "1968-09-22",
+                "endAt": "1985-04-02",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": -36879023.976967715,
+                "unit": "usdPerDay"
+              }
+            },
+            {
+              "index": -49554487,
+              "deliveryPeriod": {
+                "type": "days",
+                "startAt": "2018-12-14",
+                "endAt": "1991-12-22",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": 60624300.72421846,
+                "unit": "usdPerMMBtu"
+              }
+            }
+          ],
+          "numberOfAssessors": {
+            "Drewry": -77564202
+          }
+        }
+      ],
+      "previousPriceRelease": {
+        "id": 83637061,
+        "releaseDate": "1969-02-12"
+      },
+      "nextPriceRelease": {
+        "id": -58546312,
+        "releaseDate": "1979-12-23"
+      }
+    },
+    {
+      "id": 16202008,
+      "contractId": "<string>",
+      "releaseDate": "1957-01-29",
+      "publishedAt": "1942-01-18T14:22:05.283Z",
+      "assessmentWindowClosedAt": "1959-08-02T10:13:50.677Z",
+      "assessmentWindowOpenedAt": "1993-01-20T00:29:19.176Z",
+      "data": [
+        {
+          "revisionNumber": 96098206,
+          "revisionPublishedAt": "1947-10-09T12:03:52.953Z",
+          "dataPoints": [
+            {
+              "index": 27228994,
+              "deliveryPeriod": {
+                "type": "days",
+                "startAt": "1979-10-30",
+                "endAt": "1949-08-26",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": -91393823.80728169,
+                "unit": "usdPerMMBtu"
+              }
+            },
+            {
+              "index": 92204017,
+              "deliveryPeriod": {
+                "type": "month",
+                "startAt": "1964-05-18",
+                "endAt": "1990-10-17",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": 92873121.57121268,
+                "unit": "usdPerDay"
+              }
+            }
+          ],
+          "numberOfAssessors": {
+            "Drewry": 75698341
+          }
+        },
+        {
+          "revisionNumber": 27305627,
+          "revisionPublishedAt": "2019-11-12T10:45:25.036Z",
+          "dataPoints": [
+            {
+              "index": -17615969,
+              "deliveryPeriod": {
+                "type": "month",
+                "startAt": "1980-05-20",
+                "endAt": "2015-06-09",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": 77550243.11117893,
+                "unit": "usdPerDay"
+              }
+            },
+            {
+              "index": 67261284,
+              "deliveryPeriod": {
+                "type": "months",
+                "startAt": "1959-06-18",
+                "endAt": "2005-05-02",
+                "name": "<string>"
+              },
+              "derivedPrices": "<object>",
+              "yourAssessedPrice": {
+                "value": 90798470.35036236,
+                "unit": "usdPerMMBtu"
+              }
+            }
+          ],
+          "numberOfAssessors": {
+            "Drewry": 4626064
+          }
+        }
+      ],
+      "previousPriceRelease": {
+        "id": -91203109,
+        "releaseDate": "1952-06-15"
+      },
+      "nextPriceRelease": {
+        "id": 82022500,
+        "releaseDate": "1941-02-24"
+      }
+    }
+  ]
+}

@@ -39,14 +39,54 @@
 
 ## Abstract
 
-## Overview
+## Drewry Freight API
+
+Drewry Publishes Specific `contract-routes` for Container Frieght Pricing (Maritime). This endpoint returns all the Price Releases you can access according to your current *subscription*.
+
+Drewry releases (publishes) prices several times per week, which is called Price Release. Please read our Methodology and Specifications Guide for more details.
+
+For a specific contract, this endpoint (pictured below) returns the latest Price Releases if, according to your current subscription, you can access it.  Drewry releases (publishes) prices several times per week, which is called Price Release. Please read our Methodology and Specifications Guide for more details. 
+
+
+```json
+{ "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/": {
+            "get": {
+                "tags": [
+                    "Contracts & Price Releases"
+                ],
+                "summary": "Read Latest Price Release",
+                "description": ".",
+                "operationId": "read_latest_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_latest__get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Contract Ticker Symbol",
+                            "type": "string"
+                        },
+                        "name": "contract_ticker_symbol",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PriceReleaseDetailResponse"
+                                }
+                            }
+                        }
+                    }
+```
+
 
 ## General Information
 You can find general information here: https://github.com/freight-trust/developers/
 
 ## Maintenance Window
 No maintenance scheduled.
-
 
 ### Data Revision Policy
 
