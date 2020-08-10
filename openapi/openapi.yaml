@@ -195,14 +195,14 @@ paths:
     $ref: paths/health@.yaml
   /v1.0/contracts/:
     $ref: paths/v1.0@contracts@.yaml
-  '/v1.0/contracts/{contract_ticker_symbol}/':
-    $ref: 'paths/v1.0@contracts@{contract_ticker_symbol}@.yaml'
-  '/v1.0/contracts/{contract_ticker_symbol}/price-releases/':
-    $ref: 'paths/v1.0@contracts@{contract_ticker_symbol}@price-releases@.yaml'
-  '/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/':
-    $ref: 'paths/v1.0@contracts@{contract_ticker_symbol}@price-releases@first@.yaml'
-  '/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/':
-    $ref: 'paths/v1.0@contracts@{contract_ticker_symbol}@price-releases@latest@.yaml'
+  "/v1.0/contracts/{contract_ticker_symbol}/":
+    $ref: "paths/v1.0@contracts@{contract_ticker_symbol}@.yaml"
+  "/v1.0/contracts/{contract_ticker_symbol}/price-releases/":
+    $ref: "paths/v1.0@contracts@{contract_ticker_symbol}@price-releases@.yaml"
+  "/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/":
+    $ref: "paths/v1.0@contracts@{contract_ticker_symbol}@price-releases@first@.yaml"
+  "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/":
+    $ref: "paths/v1.0@contracts@{contract_ticker_symbol}@price-releases@latest@.yaml"
 components:
   securitySchemes:
     OAuth2ClientCredentialsBearer:

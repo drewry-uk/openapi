@@ -68,13 +68,13 @@ post:
             ../components/schemas/Body_create_an_access_token_oauth_token__post.yaml
     required: true
   responses:
-    '201':
+    "201":
       description: Successful Response
       content:
         application/json:
           schema:
             $ref: ../components/schemas/Token.yaml
-    '422':
+    "422":
       description: Validation Error
       content:
         application/json:

@@ -12,7 +12,7 @@ get:
     Please refer to our Methodology and Specifications Guide for more details.
   operationId: read_contracts_v1_0_contracts__get
   responses:
-    '200':
+    "200":
       description: Successful Response
       content:
         application/json:

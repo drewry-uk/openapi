@@ -1,0 +1,777 @@
+{
+  "item": [
+    {
+      "id": "f6a290af-fa54-414c-be88-e1103aefb3af",
+      "name": "Create An Access Token",
+      "request": {
+        "name": "Create An Access Token",
+        "description": {
+          "content": "Get a new access_token. Access tokens are the thing that applications use to make\nAPI requests. Access tokens must be kept confidential in storage.\n\n### Getting an Access Token\n\n* Method: POST\n* Body\n    * `grant_type` (required) = \"client_credentials\".\n    * `scope` (optional)\n* Headers\n    * `Authorization`: The \"Basic\" HTTP authentication scheme is defined in RFC 7617,\n    which transmits credentials as `client_id:client_secret` pairs, encoded using\n    base64  .\n\nA successful response will contain these keys: `access_token`, `token_type`,\n`expires_in` (duration of time in seconds the access token is granted for) and\n`refresh_token`.\n\n### Refreshing an Expired Access Token\n\nWith the `refresh_token`, as the access token will expire, you’ll be able to get a\nnew one having to specify the scope variable.\n\n* Method: POST\n* Body\n    * `grant_type` (required) = \"refresh_token\".\n* Headers\n    * `Authorization`: The \"Basic\" HTTP authentication scheme is defined in RFC 7617,\n    which transmits credentials as client_id/client_secret pairs, encoded using\n    base64 (`client_id:client_secret`).\n\nIf you do not get back a new refresh token, then it means your existing refresh\ntoken will continue to work when the new access token expires.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": ["oauth", "token", ""],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          { "description": "", "key": "authorization", "value": "<string>" },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "grant_type", "value": "<string>", "description": "" },
+            { "key": "scope", "value": "", "description": "" },
+            { "key": "client_id", "value": "<string>", "description": "" },
+            { "key": "client_secret", "value": "<string>", "description": "" },
+            { "key": "refresh_token", "value": "<string>", "description": "" }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "1fd4af70-ef7b-444f-9826-7011217bdd7a",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": ["oauth", "token", ""],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "description": "", "key": "authorization", "value": "<string>" }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "grant_type",
+                  "value": "<string>"
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "scope",
+                  "value": ""
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "client_secret",
+                  "value": "<string>"
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "refresh_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n \"accessToken\": \"commodo exercitation in\",\n \"tokenType\": \"incididunt magna ad consectetur\",\n \"expiresIn\": -75978448,\n \"refreshToken\": \"elit deserunt amet occaecat Ut\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "691958de-a89a-46f5-ba94-f077398abbed",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": ["oauth", "token", ""],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "description": "", "key": "authorization", "value": "<string>" }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "grant_type",
+                  "value": "<string>"
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "scope",
+                  "value": ""
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "client_secret",
+                  "value": "<string>"
+                },
+                {
+                  "description": { "content": "", "type": "text/plain" },
+                  "key": "refresh_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n \"detail\": [\n  {\n   \"loc\": [\n    \"est\",\n    \"irure nulla velit magna cillu\"\n   ],\n   \"msg\": \"occaecat qui do sunt\",\n   \"type\": \"dolor voluptate\"\n  },\n  {\n   \"loc\": [\n    \"voluptate eu adipisicing ad Duis\",\n    \"nostrud ut dolore ut\"\n   ],\n   \"msg\": \"cupidatat irure elit\",\n   \"type\": \"labo\"\n  }\n ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "261dc035-7e68-4d1d-9da1-920e7a68f533",
+      "name": "v1.0",
+      "item": [
+        {
+          "id": "93f68c3e-e821-435f-b185-ae03ff6186e6",
+          "name": "Me",
+          "request": {
+            "name": "Me",
+            "description": {
+              "content": "Return information about you",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": ["v1.0", "me", ""],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": { "type": "oauth2" }
+          },
+          "response": [
+            {
+              "id": "83e727e0-580c-49e2-9177-a72c9df4ef08",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": ["v1.0", "me", ""],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                { "key": "Content-Type", "value": "application/json" }
+              ],
+              "body": "{\n \"errors\": [\n  {\n   \"code\": \"exercitation irure\",\n   \"detail\": \"qui aute\"\n  },\n  {\n   \"code\": \"elit cillum\",\n   \"detail\": \"a\"\n  }\n ],\n \"data\": {\n  \"clientId\": \"non\",\n  \"organisationUuid\": \"dolor occaecat\",\n  \"organisationType\": \"veniam amet sunt\",\n  \"organisationName\": \"qui ut\",\n  \"defaultVertical\": \"lng-freight\",\n  \"products\": \"commodo\"\n }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": []
+        },
+        {
+          "id": "a9d9518a-1f6a-4eb4-93a1-f394b95bfb7f",
+          "name": "contracts",
+          "item": [
+            {
+              "id": "6d4958b4-ad89-400e-927e-3fb6b28338ae",
+              "name": "Read Contracts",
+              "request": {
+                "name": "Read Contracts",
+                "description": {
+                  "content": "This endpoint returns all the Spark contracts you can access according to your\ncurrent subscription.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
+                  "type": "text/plain"
+                },
+                "url": {
+                  "path": ["v1.0", "contracts", ""],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "auth": { "type": "oauth2" }
+              },
+              "response": [
+                {
+                  "id": "599b1719-1dfe-433d-b8a3-3f830f3c6d90",
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["v1.0", "contracts", ""],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                  ],
+                  "body": "{\n \"errors\": [\n  {\n   \"code\": \"Duis sunt tempor anim\",\n   \"detail\": \"proident\"\n  },\n  {\n   \"code\": \"Ut enim et\",\n   \"detail\": \"Ut aute nisi\"\n  }\n ],\n \"data\": [\n  {\n   \"id\": \"ipsum velit aliquip reprehenderit\",\n   \"product\": \"lng-freight\",\n   \"tickerSymbol\": \"reprehenderit\",\n   \"contractGroupName\": \"tempor minim Duis velit\",\n   \"fullName\": \"officia dolor magna\",\n   \"type\": \"forward\",\n   \"assessmentFrequency\": [\n    {\n     \"weekday\": \"thursday\",\n     \"openingTime\": \"do nisi eiusmod\",\n     \"closingTime\": \"et quis voluptate minim\",\n     \"timezone\": \"GMT\"\n    },\n    {\n     \"weekday\": \"friday\",\n     \"openingTime\": \"minim ut sint cupidatat\",\n     \"closingTime\": \"eiusmod\",\n     \"timezone\": \"GMT\"\n    }\n   ],\n   \"contractAssumptions\": {\n    \"vesselSizeInM3\": 61460927,\n    \"duration\": 32554029,\n    \"basin\": \"pacific\",\n    \"deliveryPeriod\": \"irure commodo incididunt sint sunt\",\n    \"currency\": \"USD\",\n    \"uom\": \"usd/day\",\n    \"contractSize\": 13090658\n   },\n   \"lastUpdatedAt\": \"amet ex\",\n   \"latestPriceRelease\": {\n    \"id\": 58200376,\n    \"releaseDate\": \"labore in exercitation\"\n   },\n   \"nextPriceRelease\": {\n    \"id\": 96413686,\n    \"releaseDate\": \"ut sed\"\n   },\n   \"firstPriceRelease\": {\n    \"id\": -881169,\n    \"releaseDate\": \"enim sunt\"\n   }\n  },\n  {\n   \"id\": \"est sed laborum eu tempor\",\n   \"product\": \"lng-freight\",\n   \"tickerSymbol\": \"amet pariatur\",\n   \"contractGroupName\": \"officia laboris\",\n   \"fullName\": \"magna\",\n   \"type\": \"front-month\",\n   \"assessmentFrequency\": [\n    {\n     \"weekday\": \"tuesday\",\n     \"openingTime\": \"nostrud cupidatat commodo aliquip sunt\",\n     \"closingTime\": \"Lorem proident\",\n     \"timezone\": \"GMT\"\n    },\n    {\n     \"weekday\": \"friday\",\n     \"openingTime\": \"elit\",\n     \"closingTime\": \"minim\",\n     \"timezone\": \"GMT\"\n    }\n   ],\n   \"contractAssumptions\": {\n    \"vesselSizeInM3\": -53477693,\n    \"duration\": 15951380,\n    \"basin\": \"pacific\",\n    \"deliveryPeriod\": \"ipsum dolore\",\n    \"currency\": \"USD\",\n    \"uom\": \"usd/day\",\n    \"contractSize\": 35216757\n   },\n   \"lastUpdatedAt\": \"quis sint consectetur dolore\",\n   \"latestPriceRelease\": {\n    \"id\": 88603999,\n    \"releaseDate\": \"dolor dolor quis sunt\"\n   },\n   \"nextPriceRelease\": {\n    \"id\": 93227479,\n    \"releaseDate\": \"Lorem ad irure Ut\"\n   },\n   \"firstPriceRelease\": {\n    \"id\": -67862944,\n    \"releaseDate\": \"quis Duis Ut dolore\"\n   }\n  }\n ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": []
+            },
+            {
+              "id": "72a33cd6-8f95-4134-892e-8b05b4c72df4",
+              "name": "{contract ticker symbol}",
+              "item": [
+                {
+                  "id": "c7eae3cb-32ba-4a0e-b7be-4a9cabb19ec9",
+                  "name": "Read Contract",
+                  "request": {
+                    "name": "Read Contract",
+                    "description": {
+                      "content": "This endpoint returns the Spark contracts if, according to your current\nsubscription, you can access it.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
+                      "type": "text/plain"
+                    },
+                    "url": {
+                      "path": [
+                        "v1.0",
+                        "contracts",
+                        ":contract_ticker_symbol",
+                        ""
+                      ],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": [
+                        {
+                          "description": "(Required) ",
+                          "type": "any",
+                          "value": "<string>",
+                          "key": "contract_ticker_symbol"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "auth": { "type": "oauth2" }
+                  },
+                  "response": [
+                    {
+                      "id": "3c9979c7-7f71-4aa2-9976-a510ddd27f6b",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "v1.0",
+                            "contracts",
+                            ":contract_ticker_symbol",
+                            ""
+                          ],
+                          "host": ["{{baseUrl}}"],
+                          "query": [],
+                          "variable": [
+                            { "type": "any", "key": "contract_ticker_symbol" }
+                          ]
+                        },
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "header": [
+                        { "key": "Content-Type", "value": "application/json" }
+                      ],
+                      "body": "{\n \"errors\": [\n  {\n   \"code\": \"dolor reprehenderit\",\n   \"detail\": \"pariatur quis ullamco nostrud in\"\n  },\n  {\n   \"code\": \"voluptate adipisicing irure reprehenderit aliqua\",\n   \"detail\": \"amet ipsum\"\n  }\n ],\n \"data\": {\n  \"id\": \"proident aute consectetur ut incididunt\",\n  \"product\": \"lng-freight\",\n  \"tickerSymbol\": \"adipisicing\",\n  \"contractGroupName\": \"minim voluptate amet\",\n  \"fullName\": \"cillum Lorem nostrud\",\n  \"type\": \"spot\",\n  \"assessmentFrequency\": [\n   {\n    \"weekday\": \"wednesday\",\n    \"openingTime\": \"ullamco consequat sint dolore\",\n    \"closingTime\": \"irure fugiat\",\n    \"timezone\": \"GMT\"\n   },\n   {\n    \"weekday\": \"tuesday\",\n    \"openingTime\": \"anim pariatur est consectetur\",\n    \"closingTime\": \"anim\",\n    \"timezone\": \"GMT\"\n   }\n  ],\n  \"contractAssumptions\": {\n   \"vesselSizeInM3\": -14318336,\n   \"duration\": -10827204,\n   \"basin\": \"atlantic\",\n   \"deliveryPeriod\": \"aute reprehenderit fugiat aliqua esse\",\n   \"currency\": \"USD\",\n   \"uom\": \"usd/day\",\n   \"contractSize\": -25684221\n  },\n  \"lastUpdatedAt\": \"id\",\n  \"latestPriceRelease\": {\n   \"id\": -99108572,\n   \"releaseDate\": \"aliqua do adipisicing culpa\"\n  },\n  \"nextPriceRelease\": {\n   \"id\": 88004147,\n   \"releaseDate\": \"et reprehende\"\n  },\n  \"firstPriceRelease\": {\n   \"id\": 75147265,\n   \"releaseDate\": \"Lorem aliqua\"\n  }\n }\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    },
+                    {
+                      "id": "2e45378b-2df6-4d16-93d5-adc8c4bdf226",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "v1.0",
+                            "contracts",
+                            ":contract_ticker_symbol",
+                            ""
+                          ],
+                          "host": ["{{baseUrl}}"],
+                          "query": [],
+                          "variable": [
+                            { "type": "any", "key": "contract_ticker_symbol" }
+                          ]
+                        },
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "header": [
+                        { "key": "Content-Type", "value": "application/json" }
+                      ],
+                      "body": "{\n \"detail\": [\n  {\n   \"loc\": [\n    \"in\",\n    \"occaecat pariatur consequat et\"\n   ],\n   \"msg\": \"est cupidatat voluptate eiusmod\",\n   \"type\": \"consequat minim\"\n  },\n  {\n   \"loc\": [\n    \"dolore exercitation\",\n    \"Ut adipisicing ipsum qui laborum\"\n   ],\n   \"msg\": \"dolor nisi aute enim\",\n   \"type\": \"proide\"\n  }\n ]\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": []
+                },
+                {
+                  "id": "3367b3a2-fad3-4c04-8ac1-54c1abdd561e",
+                  "name": "price-releases",
+                  "item": [
+                    {
+                      "id": "5250611b-02b8-4534-8107-ec2653f7fc1c",
+                      "name": "Read Price Releases",
+                      "request": {
+                        "name": "Read Price Releases",
+                        "description": {
+                          "content": "For a specific contract, this endpoint returns all the Price Releases you can\naccess according to your current subscription.\n\nSpark Commodities releases prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nSpark will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Spark\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
+                          "type": "text/plain"
+                        },
+                        "url": {
+                          "path": [
+                            "v1.0",
+                            "contracts",
+                            ":contract_ticker_symbol",
+                            "price-releases",
+                            ""
+                          ],
+                          "host": ["{{baseUrl}}"],
+                          "query": [],
+                          "variable": [
+                            {
+                              "description": "(Required) ",
+                              "type": "any",
+                              "value": "<string>",
+                              "key": "contract_ticker_symbol"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "auth": { "type": "oauth2" }
+                      },
+                      "response": [
+                        {
+                          "id": "fa63a7e0-b186-40bc-9a8b-32d87f0e6ac1",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "v1.0",
+                                "contracts",
+                                ":contract_ticker_symbol",
+                                "price-releases",
+                                ""
+                              ],
+                              "host": ["{{baseUrl}}"],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "key": "contract_ticker_symbol"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "body": {}
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n \"errors\": [\n  {\n   \"code\": \"Duis est voluptate\",\n   \"detail\": \"dolore Duis do\"\n  },\n  {\n   \"code\": \"consequat aute\",\n   \"detail\": \"et\"\n  }\n ],\n \"data\": [\n  {\n   \"id\": -78515619,\n   \"contractId\": \"ullamco\",\n   \"releaseDate\": \"voluptate laborum consectetur officia\",\n   \"publishedAt\": \"sint ut\",\n   \"assessmentWindowClosedAt\": \"adipisicing incididunt ex sed\",\n   \"assessmentWindowOpenedAt\": \"cupidatat deserunt consectetur labore Lorem\",\n   \"data\": [\n    {\n     \"revisionNumber\": -82211612,\n     \"revisionPublishedAt\": \"esse elit ven\",\n     \"dataPoints\": [\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"numberOfAssessors\": {\n      \"spark\": 69471294\n     }\n    },\n    {\n     \"revisionNumber\": -93536490,\n     \"revisionPublishedAt\": \"dolore Lorem adipisicing\",\n     \"dataPoints\": [\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"numberOfAssessors\": {\n      \"spark\": -85374447\n     }\n    }\n   ],\n   \"previousPriceRelease\": {\n    \"id\": -49152540,\n    \"releaseDate\": \"minim cupidatat occaecat in\"\n   },\n   \"nextPriceRelease\": {\n    \"id\": -56801568,\n    \"releaseDate\": \"dolor\"\n   }\n  },\n  {\n   \"id\": -80686727,\n   \"contractId\": \"Lorem ipsum nisi aliquip\",\n   \"releaseDate\": \"deserunt\",\n   \"publishedAt\": \"laborum dolore tempor occaecat\",\n   \"assessmentWindowClosedAt\": \"dolore aliqua dolor\",\n   \"assessmentWindowOpenedAt\": \"tempor labore\",\n   \"data\": [\n    {\n     \"revisionNumber\": 88082133,\n     \"revisionPublishedAt\": \"irure pariatur mollit laborum\",\n     \"dataPoints\": [\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"numberOfAssessors\": {\n      \"spark\": 20651088\n     }\n    },\n    {\n     \"revisionNumber\": 28045944,\n     \"revisionPublishedAt\": \"elit nisi ipsum\",\n     \"dataPoints\": [\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"index\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"deliveryPeriod\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"derivedPrices\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"yourAssessedPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"numberOfAssessors\": {\n      \"spark\": -58540827\n     }\n    }\n   ],\n   \"previousPriceRelease\": {\n    \"id\": -84517606,\n    \"releaseDate\": \"cupidatat esse\"\n   },\n   \"nextPriceRelease\": {\n    \"id\": -66435831,\n    \"releaseDate\": \"dolor reprehenderit ex esse\"\n   }\n  }\n ]\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "550bb0ca-5781-40d0-870e-7baf64701da3",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "v1.0",
+                                "contracts",
+                                ":contract_ticker_symbol",
+                                "price-releases",
+                                ""
+                              ],
+                              "host": ["{{baseUrl}}"],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "key": "contract_ticker_symbol"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "body": {}
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n \"detail\": [\n  {\n   \"loc\": [\n    \"in\",\n    \"occaecat pariatur consequat et\"\n   ],\n   \"msg\": \"est cupidatat voluptate eiusmod\",\n   \"type\": \"consequat minim\"\n  },\n  {\n   \"loc\": [\n    \"dolore exercitation\",\n    \"Ut adipisicing ipsum qui laborum\"\n   ],\n   \"msg\": \"dolor nisi aute enim\",\n   \"type\": \"proide\"\n  }\n ]\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        }
+                      ],
+                      "event": []
+                    },
+                    {
+                      "id": "a74ed5cc-4fad-475e-a8d3-faa9e32fb0f1",
+                      "name": "Read First Price Release",
+                      "request": {
+                        "name": "Read First Price Release",
+                        "description": {
+                          "content": "For a specific contract, this endpoint returns the first Price Releases if,\naccording to your current subscription, you can access it.\n\nSpark Commodities releases prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nSpark will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Spark\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
+                          "type": "text/plain"
+                        },
+                        "url": {
+                          "path": [
+                            "v1.0",
+                            "contracts",
+                            ":contract_ticker_symbol",
+                            "price-releases",
+                            "first",
+                            ""
+                          ],
+                          "host": ["{{baseUrl}}"],
+                          "query": [],
+                          "variable": [
+                            {
+                              "description": "(Required) ",
+                              "type": "any",
+                              "value": "<string>",
+                              "key": "contract_ticker_symbol"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "auth": { "type": "oauth2" }
+                      },
+                      "response": [
+                        {
+                          "id": "77098943-4028-4824-a599-0cb4a9f57e23",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "v1.0",
+                                "contracts",
+                                ":contract_ticker_symbol",
+                                "price-releases",
+                                "first",
+                                ""
+                              ],
+                              "host": ["{{baseUrl}}"],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "key": "contract_ticker_symbol"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "body": {}
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n \"errors\": [\n  {\n   \"code\": \"occaecat aliqua\",\n   \"detail\": \"est\"\n  },\n  {\n   \"code\": \"Duis dolore voluptate\",\n   \"detail\": \"id proident eu aliquip \"\n  }\n ],\n \"data\": {\n  \"id\": 16646003,\n  \"contractId\": \"ea\",\n  \"releaseDate\": \"sunt laboris\",\n  \"publishedAt\": \"culpa nulla cupidatat mollit\",\n  \"assessmentWindowClosedAt\": \"consequat deserunt\",\n  \"assessmentWindowOpenedAt\": \"ullamco dolor proident\",\n  \"data\": [\n   {\n    \"revisionNumber\": 55379759,\n    \"revisionPublishedAt\": \"deseru\",\n    \"dataPoints\": [\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"numberOfAssessors\": {\n     \"spark\": -38644630\n    }\n   },\n   {\n    \"revisionNumber\": 82749894,\n    \"revisionPublishedAt\": \"ad fugiat\",\n    \"dataPoints\": [\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"numberOfAssessors\": {\n     \"spark\": 68984685\n    }\n   }\n  ],\n  \"previousPriceRelease\": {\n   \"id\": -61486141,\n   \"releaseDate\": \"ut ad\"\n  },\n  \"nextPriceRelease\": {\n   \"id\": 38196877,\n   \"releaseDate\": \"mollit est incididu\"\n  }\n }\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "9b616785-dab8-4e01-b973-27f1e27fbbf5",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "v1.0",
+                                "contracts",
+                                ":contract_ticker_symbol",
+                                "price-releases",
+                                "first",
+                                ""
+                              ],
+                              "host": ["{{baseUrl}}"],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "key": "contract_ticker_symbol"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "body": {}
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n \"detail\": [\n  {\n   \"loc\": [\n    \"in\",\n    \"occaecat pariatur consequat et\"\n   ],\n   \"msg\": \"est cupidatat voluptate eiusmod\",\n   \"type\": \"consequat minim\"\n  },\n  {\n   \"loc\": [\n    \"dolore exercitation\",\n    \"Ut adipisicing ipsum qui laborum\"\n   ],\n   \"msg\": \"dolor nisi aute enim\",\n   \"type\": \"proide\"\n  }\n ]\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        }
+                      ],
+                      "event": []
+                    },
+                    {
+                      "id": "702828be-c6b1-45ab-8c5f-1aeb3595e6f8",
+                      "name": "Read Latest Price Release",
+                      "request": {
+                        "name": "Read Latest Price Release",
+                        "description": {
+                          "content": "For a specific contract, this endpoint returns the latest Price Releases if,\naccording to your current subscription, you can access it.\n\nSpark Commodities releases prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nSpark will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Spark\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
+                          "type": "text/plain"
+                        },
+                        "url": {
+                          "path": [
+                            "v1.0",
+                            "contracts",
+                            ":contract_ticker_symbol",
+                            "price-releases",
+                            "latest",
+                            ""
+                          ],
+                          "host": ["{{baseUrl}}"],
+                          "query": [],
+                          "variable": [
+                            {
+                              "description": "(Required) ",
+                              "type": "any",
+                              "value": "<string>",
+                              "key": "contract_ticker_symbol"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "auth": { "type": "oauth2" }
+                      },
+                      "response": [
+                        {
+                          "id": "94687b19-7eb7-4931-b4c2-598a4d23fc64",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "v1.0",
+                                "contracts",
+                                ":contract_ticker_symbol",
+                                "price-releases",
+                                "latest",
+                                ""
+                              ],
+                              "host": ["{{baseUrl}}"],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "key": "contract_ticker_symbol"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "body": {}
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n \"errors\": [\n  {\n   \"code\": \"dolore voluptate dolor\",\n   \"detail\": \"irure eiusmod laborum in\"\n  },\n  {\n   \"code\": \"nulla Excepteur culpa\",\n   \"detail\": \"veniam dolore ea in\"\n  }\n ],\n \"data\": {\n  \"id\": 22527735,\n  \"contractId\": \"Lorem culpa\",\n  \"releaseDate\": \"dolore qui\",\n  \"publishedAt\": \"proident ad\",\n  \"assessmentWindowClosedAt\": \"aliquip Ut nulla id\",\n  \"assessmentWindowOpenedAt\": \"esse minim\",\n  \"data\": [\n   {\n    \"revisionNumber\": 1081586,\n    \"revisionPublishedAt\": \"adipi\",\n    \"dataPoints\": [\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"numberOfAssessors\": {\n     \"spark\": -99904771\n    }\n   },\n   {\n    \"revisionNumber\": 8147838,\n    \"revisionPublishedAt\": \"dolore est labore\",\n    \"dataPoints\": [\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     {\n      \"index\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"deliveryPeriod\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"derivedPrices\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"yourAssessedPrice\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     }\n    ],\n    \"numberOfAssessors\": {\n     \"spark\": -23069786\n    }\n   }\n  ],\n  \"previousPriceRelease\": {\n   \"id\": 39971688,\n   \"releaseDate\": \"voluptate occaecat dolore irure nostrud\"\n  },\n  \"nextPriceRelease\": {\n   \"id\": 35858262,\n   \"releaseDate\": \"velit enim in mollit\"\n  }\n }\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "cfad8b95-7b89-4993-b375-a41904b90ca2",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "v1.0",
+                                "contracts",
+                                ":contract_ticker_symbol",
+                                "price-releases",
+                                "latest",
+                                ""
+                              ],
+                              "host": ["{{baseUrl}}"],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "key": "contract_ticker_symbol"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "body": {}
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n \"detail\": [\n  {\n   \"loc\": [\n    \"in\",\n    \"occaecat pariatur consequat et\"\n   ],\n   \"msg\": \"est cupidatat voluptate eiusmod\",\n   \"type\": \"consequat minim\"\n  },\n  {\n   \"loc\": [\n    \"dolore exercitation\",\n    \"Ut adipisicing ipsum qui laborum\"\n   ],\n   \"msg\": \"dolor nisi aute enim\",\n   \"type\": \"proide\"\n  }\n ]\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        }
+                      ],
+                      "event": []
+                    }
+                  ],
+                  "event": []
+                }
+              ],
+              "event": []
+            }
+          ],
+          "event": []
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1c581ba9-5117-4447-bdfa-de9c10ff9766",
+      "name": "Health",
+      "request": {
+        "name": "Health",
+        "description": {
+          "content": "Use this to check if the API is alive. No authentication needed.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": ["health", ""],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "9c358e75-a97c-479a-9dd6-e76822aa93a9",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": ["health", ""],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n \"status\": \"Error\",\n \"serverDateTime\": \"veniam Excepteur consequat\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b3aafd5b-4bcd-4501-a9ad-0c1d598502b6",
+      "name": "Warmup",
+      "request": {
+        "name": "Warmup",
+        "description": {
+          "content": "Warmup requests are used by the App Engine scheduler",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": ["_ah", "warmup"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "cb89823f-363a-465e-99f0-222748dc3cd1",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": ["_ah", "warmup"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "\"schema type not provided\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [{ "id": "baseUrl", "type": "string", "value": "/" }],
+  "info": {
+    "_postman_id": "00a0dc77-54a2-4f40-b67f-54dc96f5f2db",
+    "name": "Spark Commodities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n<h2>General Information</h2>\n<p>\n    You can find general information here:\n    <a href=\"https://developers.sparkcommodities.com/\">\n        https://developers.sparkcommodities.com/\n    </a>\n</p>\n\n<h2>Maintenance Window</h2>\n<p>\n    No maintenance scheduled.\n</p>\n\n<h2>URLs</h2>\n\nAPI Base URL is <b>https://api.sparkcommodities.com</b>.\n\nFull URL example: https://api.sparkcommodities.com/v1.0/contracts/\n\n<h2>Versioning</h2>\n<p>\n    The API is versioned using a version tag in the URL (e.g. /v1.0/). Breaking changes\n    are deployed with an incremented API version. Older versions may be marked\n    deprecated and be shutdown.\n</p>\n\n<h2>HTTP Statuses</h2>\n\nSpark Commodities uses conventional HTTP response codes to indicate the success or\nfailure of an API request.\n\nIn general, if the status returned is in the 200 range, it indicates that the request\nwas fulfilled successfully and that no error was encountered.\n\nReturn codes in the 400 range typically indicate that there was an issue with the\nrequest that was sent. Among other things, this could mean that you did not authenticate\ncorrectly, that you are requesting an action that you do not have authorization for,\nthat the object you are requesting does not exist, or that your request is malformed.\n\nIf you receive a status in the 500 range, this generally indicates a server-side problem.\nThis means that we are having an issue on our end and cannot fulfill your request\ncurrently.\n\nHere is a list of supported codes:\n\n<ul>\n    <li>200: Successful Operation</li>\n    <li>201: Entity Created</li>\n    <li>400: Bad Request Exception / Limit Exceeded Exception</li>\n    <li>401: Unauthorized</li>\n    <li>403: Forbidden</li>\n    <li>422: Validation Error</li>\n    <li>429: Too Many Requests Exception</li>\n    <li>500: Internal Server Error</li>\n    <li>503: Maintenance Mode</li>\n</ul>\n\n<h2>Responses and Data Format</h2>\n\nWhen a request is successful, a response body will be sent back in the form of a JSON\nobject or an array of JSON objects, under the `data` key. Our API only supports\nJSON format.\n\nIn the event of a problem, the body of the response will usually contain additional\ninformation about the problem that was encountered, under the `errors` key.\n\n<h2>Authentication</h2>\n\nIn order to interact with the Spark Commodities API, your application must authenticate.\n\nThe Spark Commodities API handles this through OAuth, an open standard for\nauthorization, with a two-legged Oauth 2 approach (using client credentials).\n\nAn access token is needed to authenticate your application for every endpoint.\n\n<h3>How to get an Access Token with OAuth 2?</h3>\n\nUse the <b>https://api.sparkcommodities.com/oauth/token/</b> endpoint with your\ncredentials to receive a token. The necessary <b>client_id</b> and\n<b>client_secret</b> credentials are provided by Spark. Please contact us at\ninfo@sparkcommodities.com to request them.\n\nBecause of this, it is <b>absolutely</b> essential that you keep your <b>client_id</b>\nand <b>client_secret</b> credentials secure.\n\nA token is valid for 30 minutes. After that, you can either refresh it or create a new\none.\n\n<h3>How to Authenticate with your Access Token?</h3>\n\nIn order to make an authenticated request, include a bearer-type Authorization header\ncontaining your OAuth token. <b>All requests must be made over HTTPS.</b>\n\nFor example: `Authorization: Bearer YOUR-TOKEN`\n\n<h2>Usage Plans</h2>\n<p>\n    There are measurements in place to protect the API from abuse. This includes a\n    request quota and throttling using the token-bucket pattern, which can be configured\n    to the needs of the external service. Every request is counted against your usage\n    plan. The default usage plan is as follows.\n</p>\n\n<ul>\n    <li>Throttling (requests per second): 50 req/sec</li>\n    <li>Burst (bucket size): 200</li>\n    <li>Quota (requests per day): 1000 req/day</li>\n</ul>\n\n<h2>Code Samples:</h2>\n\n<a href=\"https://github.com/spark-commodities/api-code-samples\">\n    View samples on GitHub\n</a>\n",
+      "type": "text/plain"
+    }
+  }
+}

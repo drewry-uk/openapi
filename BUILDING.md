@@ -2,22 +2,21 @@
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14) [RFC2119](https://tools.ietf.org/html/rfc2119) [RFC8174](https://tools.ietf.org/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
 
-
 ## Introduction
 
 This document is to describe the functionality a project MUST provide in terms of creating build artifacts. It also describes the structure in which project's MUST write build artifacts in.
 
 A project MUST provide:
 
- - a folder name convention for build artifacts
- - a folder structure for the above-mentioned build artifacts folder
- - a list of targets
- - a file called `bin/build.{target}.{ext}` to target each of the build targets
- - a build pipeline given the above pretext
+- a folder name convention for build artifacts
+- a folder structure for the above-mentioned build artifacts folder
+- a list of targets
+- a file called `bin/build.{target}.{ext}` to target each of the build targets
+- a build pipeline given the above pretext
 
 The purpose of having a uniform way of producing a build is that we may ALL produce builds for any of the projects, making the onramp for new developers less steep, while still maintaining an exceptionally high level of quality.
 
-The projects should follow the 'architecture as code' principle - and should require a very minimal set of dependencies. 
+The projects should follow the 'architecture as code' principle - and should require a very minimal set of dependencies.
 
 It is the responsibilty of the build tooling to write artifacts to the appropriate location as outlined in this specification.
 
@@ -38,8 +37,8 @@ The result of the build process should create a folder structure as follows:
         └── {project-name}.{ext}
 ```
 
-
 Below is an example:
+
 ```
 .
 └── build
@@ -50,6 +49,7 @@ Below is an example:
 ## Build Targets
 
 Below is a list of suggested targets for a project
+
 1. windows
 2. linux
 3. macos

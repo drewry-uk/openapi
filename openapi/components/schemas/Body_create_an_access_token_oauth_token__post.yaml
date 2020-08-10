@@ -10,7 +10,7 @@ properties:
   scope:
     title: Scope
     type: string
-    default: ''
+    default: ""
   client_id:
     title: Client Id
     type: string

@@ -14,10 +14,9 @@ Please [SEE LICENSE](#LICENSE)
 
 ## Bug reports
 
-If you think you've found a bug in the software, first make sure you're testing against the *latest* version of the software -- your issue may have been fixed already. If it's not, please check out the issues list on Github and search for similar issues that have already been opened. If there are no issues then please [submit a Github issue](https://help.github.com/articles/creating-an-issue/).
+If you think you've found a bug in the software, first make sure you're testing against the _latest_ version of the software -- your issue may have been fixed already. If it's not, please check out the issues list on Github and search for similar issues that have already been opened. If there are no issues then please [submit a Github issue](https://help.github.com/articles/creating-an-issue/).
 
 If you can provide a small test case it would greatly help the reproduction of a bug, as well as a a screenshot, and any other information you can provide.
-
 
 ## Feature Requests
 
@@ -40,22 +39,18 @@ For small documentation changes and fixes, these can be done quickly following t
 ### Submitting changes
 
 1. Review & Test changes
-    * If the code changed, then test it. If documentation changed, then preview the rendered Markdown.
+   - If the code changed, then test it. If documentation changed, then preview the rendered Markdown.
 2. Commiting
-    * Follow the [Conventional Commits](CONVENTIONAL_COMMITS.md) guidelines to create a commit message.
+   - Follow the [Conventional Commits](CONVENTIONAL_COMMITS.md) guidelines to create a commit message.
 3. Sign the CLA
-    * Make sure you've signed the repository's Contributor License Agreement. We are not asking you to assign copyright to us, but to give us the right to distribute your code without restriction. We ask this of all contributors in order to assure our users of the origin and continuing existence of the code. You only need to sign the CLA once.
+   - Make sure you've signed the repository's Contributor License Agreement. We are not asking you to assign copyright to us, but to give us the right to distribute your code without restriction. We ask this of all contributors in order to assure our users of the origin and continuing existence of the code. You only need to sign the CLA once.
 4. Submit a pull request
-    * Push local changes to your forked repository and make a pull request. Follow the [Convention Commits](CONVENTIONAL_COMMITS.md) guidelines for naming Github pull requests and what to put in the body.
-
+   - Push local changes to your forked repository and make a pull request. Follow the [Convention Commits](CONVENTIONAL_COMMITS.md) guidelines for naming Github pull requests and what to put in the body.
 
 ## Building
 
 Follow the build process is outlined in [BUILDING.md](BUILDING.md) to create a build.
 
-
 ## Releasing
 
 Follow the release process is outlined in [RELEASING.md](RELEASING.md) to create a release.
-
-

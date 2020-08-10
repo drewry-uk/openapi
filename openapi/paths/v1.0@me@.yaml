@@ -5,7 +5,7 @@ get:
   description: Return information about user
   operationId: me_v1_0_me__get
   responses:
-    '200':
+    "200":
       description: Successful Response
       content:
         application/json:
