@@ -2,20 +2,28 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Drewry Benchmark Freight Index API",
-    "description": "\n<h2>General Information</h2>\n<p>\n    You can find general information here:\n    <a href=\"https://github.com/freight-trust/developers\">\n        https://github.com/freight-trust/developers/\n    </a>\n</p>\n\n<h2>Maintenance Window</h2>\n<p>\n    No maintenance scheduled.\n</p>\n\n<h2>URLs</h2>\n\nAPI Base URL is <b>https://api.containerrateindex.com</b>.\n\nFull URL example: https://api.containerrateindex.com/v1.0/contracts/\n\n<h2>Versioning</h2>\n<p>\n    The API is versioned using a version tag in the URL (e.g. /v1.0/). Breaking changes\n    are deployed with an incremented API version. Older versions may be marked\n    deprecated and be shutdown.\n</p>\n\n<h2>HTTP Statuses</h2>\n\n Freight Trust & Clearing uses conventional HTTP response codes to indicate the success or\nfailure of an API request.\n\nIn general, if the status returned is in the 200 range, it indicates that the request\nwas fulfilled successfully and that no error was encountered.\n\nReturn codes in the 400 range typically indicate that there was an issue with the\nrequest that was sent. Among other things, this could mean that you did not authenticate\ncorrectly, that you are requesting an action that you do not have authorization for,\nthat the object you are requesting does not exist, or that your request is malformed.\n\nIf you receive a status in the 500 range, this generally indicates a server-side problem.\nThis means that we are having an issue on our end and cannot fulfill your request\ncurrently.\n\nHere is a list of supported codes:\n\n<ul>\n    <li>200: Successful Operation</li>\n    <li>201: Entity Created</li>\n    <li>400: Bad Request Exception / Limit Exceeded Exception</li>\n    <li>401: Unauthorized</li>\n    <li>403: Forbidden</li>\n    <li>422: Validation Error</li>\n    <li>429: Too Many Requests Exception</li>\n    <li>500: Internal Server Error</li>\n    <li>503: Maintenance Mode</li>\n</ul>\n\n<h2>Responses and Data Format</h2>\n\nWhen a request is successful, a response body will be sent back in the form of a JSON\nobject or an array of JSON objects, under the `data` key. Our API only supports\nJSON format.\n\nIn the event of a problem, the body of the response will usually contain additional\ninformation about the problem that was encountered, under the `errors` key.\n\n<h2>Authentication</h2>\n\nIn order to interact with the DrewryAPI, your application must authenticate.\n\nThe DrewryAPI handles this through OAuth, an open standard for\nauthorization, with a two-legged Oauth 2 approach (using client credentials).\n\nAn access token is needed to authenticate your application for every endpoint.\n\n<h3>How to get an Access Token with OAuth 2?</h3>\n\nUse the <b>https://api.freighttrust.com/oauth/token/</b> endpoint with your\ncredentials to receive a token. The necessary <b>client_id</b> and\n<b>client_secret</b> credentials are provided by Drewry. Please contact us at\ninfo@commodityprotocol.com to request them.\n\nBecause of this, it is <b>absolutely</b> essential that you keep your <b>client_id</b>\nand <b>client_secret</b> credentials secure.\n\nA token is valid for 30 minutes. After that, you can either refresh it or create a new\none.\n\n<h3>How to Authenticate with your Access Token?</h3>\n\nIn order to make an authenticated request, include a bearer-type Authorization header\ncontaining your OAuth token. <b>All requests must be made over HTTPS.</b>\n\nFor example: `Authorization: Bearer YOUR-TOKEN`\n\n<h2>Usage Plans</h2>\n<p>\n    There are measurements in place to protect the API from abuse. This includes a\n    request quota and throttling using the token-bucket pattern, which can be configured\n    to the needs of the external service. Every request is counted against your usage\n    plan. The default usage plan is as follows.\n</p>\n\n<ul>\n    <li>Throttling (requests per second): 50 req/sec</li>\n    <li>Burst (bucket size): 200</li>\n    <li>Quota (requests per day): 1000 req/day</li>\n</ul>\n\n<h2>Code Samples:</h2>\n\n<a href=\"https://github.com/drewry-uk/api-code\">\n  \n\n<a href=\"https://github.com/freight-trust/container-freight\">\n   View samples on GitHub\n</a>\n",
-    "version": "1.0.0"
+    "description": "\n<h2>General Information</h2>\n<p>\n    You can find general information here:\n    <a href=\"https://github.com/freight-trust/developers\">\n        https://github.com/freight-trust/developers/\n    </a>\n</p>\n\n<h2>Maintenance Window</h2>\n<p>\n    No maintenance scheduled.\n</p>\n\n<h2>URLs</h2>\n\n> NOTE: THE URLS WILL BE CHANGING BY END OF AUGUST 2020 - THESE ARE DUMMY URLS FOR NOW\nAPI Base URL is <b>https://api.containerrateindex.com</b>.\n\nFull URL example: https://api.containerrateindex.com/v1.0/contracts/\n\n<h2>Versioning</h2>\n<p>\n    The API is versioned using a version tag in the URL (e.g. /v1.0/). Breaking changes\n    are deployed with an incremented API version. Older versions may be marked\n    deprecated and be shutdown.\n</p>\n\n<h2>HTTP Statuses</h2>\n\n Freight Trust & Clearing uses conventional HTTP response codes to indicate the success or\nfailure of an API request.\n\nIn general, if the status returned is in the 200 range, it indicates that the request\nwas fulfilled successfully and that no error was encountered.\n\nReturn codes in the 400 range typically indicate that there was an issue with the\nrequest that was sent. Among other things, this could mean that you did not authenticate\ncorrectly, that you are requesting an action that you do not have authorization for,\nthat the object you are requesting does not exist, or that your request is malformed.\n\nIf you receive a status in the 500 range, this generally indicates a server-side problem.\nThis means that we are having an issue on our end and cannot fulfill your request\ncurrently.\n\nHere is a list of supported codes:\n\n<ul>\n    <li>200: Successful Operation</li>\n    <li>201: Entity Created</li>\n    <li>400: Bad Request Exception / Limit Exceeded Exception</li>\n    <li>401: Unauthorized</li>\n    <li>403: Forbidden</li>\n    <li>422: Validation Error</li>\n    <li>429: Too Many Requests Exception</li>\n    <li>500: Internal Server Error</li>\n    <li>503: Maintenance Mode</li>\n</ul>\n\n<h2>Responses and Data Format</h2>\n\nWhen a request is successful, a response body will be sent back in the form of a JSON\nobject or an array of JSON objects, under the `data` key. Our API only supports\nJSON format.\n\nIn the event of a problem, the body of the response will usually contain additional\ninformation about the problem that was encountered, under the `errors` key.\n\n<h2>Authentication</h2>\n\nIn order to interact with the DrewryAPI, your application must authenticate.\n\nThe DrewryAPI handles this through OAuth, an open standard for\nauthorization, with a two-legged Oauth 2 approach (using client credentials).\n\nAn access token is needed to authenticate your application for every endpoint.\n\n<h3>How to get an Access Token with OAuth 2?</h3>\n\nUse the <b>https://api.freighttrust.com/oauth/token/</b> endpoint with your\ncredentials to receive a token. The necessary <b>client_id</b> and\n<b>client_secret</b> credentials are provided by Drewry. Please contact us at\ninfo@commodityprotocol.com to request them.\n\nBecause of this, it is <b>absolutely</b> essential that you keep your <b>client_id</b>\nand <b>client_secret</b> credentials secure.\n\nA token is valid for 30 minutes. After that, you can either refresh it or create a new\none.\n\n<h3>How to Authenticate with your Access Token?</h3>\n\nIn order to make an authenticated request, include a bearer-type Authorization header\ncontaining your OAuth token. <b>All requests must be made over HTTPS.</b>\n\nFor example: `Authorization: Bearer YOUR-TOKEN`\n\n<h2>Usage Plans</h2>\n<p>\n    There are measurements in place to protect the API from abuse. This includes a\n    request quota and throttling using the token-bucket pattern, which can be configured\n    to the needs of the external service. Every request is counted against your usage\n    plan. The default usage plan is as follows.\n</p>\n\n<ul>\n    <li>Throttling (requests per second): 50 req/sec</li>\n    <li>Burst (bucket size): 200</li>\n    <li>Quota (requests per day): 1000 req/day</li>\n</ul>\n\n<h2>Code Samples:</h2>\n\n<a href=\"https://github.com/drewry-uk/api-code\">\n  \n\n<a href=\"https://github.com/freight-trust/container-freight\">\n   View samples on GitHub\n</a>\n",
+    "version": "1.0.0",
+    "license": {
+      "name": "Apache-2.0"
+    }
   },
   "paths": {
     "/oauth/token/": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "summary": "Create An Access Token",
         "description": "Get a new access_token. Access tokens are the thing that applications use to make\nAPI requests. Access tokens must be kept confidential in storage.\n\n### Getting an Access Token\n\n* Method: POST\n* Body\n    * `grant_type` (required) = \"client_credentials\".\n    * `scope` (optional)\n* Headers\n    * `Authorization`: The \"Basic\" HTTP authentication scheme is defined in RFC 7617,\n    which transmits credentials as `client_id:client_secret` pairs, encoded using\n    base64  .\n\nA successful response will contain these keys: `access_token`, `token_type`,\n`expires_in` (duration of time in seconds the access token is granted for) and\n`refresh_token`.\n\n### Refreshing an Expired Access Token\n\nWith the `refresh_token`, as the access token will expire, you’ll be able to get a\nnew one having to specify the scope variable.\n\n* Method: POST\n* Body\n    * `grant_type` (required) = \"refresh_token\".\n* Headers\n    * `Authorization`: The \"Basic\" HTTP authentication scheme is defined in RFC 7617,\n    which transmits credentials as client_id/client_secret pairs, encoded using\n    base64 (`client_id:client_secret`).\n\nIf you do not get back a new refresh token, then it means your existing refresh\ntoken will continue to work when the new access token expires.",
         "operationId": "create_an_access_token_oauth_token__post",
         "parameters": [
           {
             "required": false,
-            "schema": { "title": "Authorization", "type": "string" },
+            "schema": {
+              "title": "Authorization",
+              "type": "string"
+            },
             "name": "authorization",
             "in": "header"
           }
@@ -35,7 +43,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Token" }
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
               }
             }
           },
@@ -43,7 +53,9 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
@@ -52,7 +64,9 @@
     },
     "/v1.0/me/": {
       "get": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "summary": "User",
         "description": "Return information about user",
         "operationId": "user_v1_0_me__get",
@@ -68,12 +82,18 @@
             }
           }
         },
-        "security": [{ "OAuth2ClientCredentialsBearer": [] }]
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": []
+          }
+        ]
       }
     },
     "/health/": {
       "get": {
-        "tags": ["Utilities"],
+        "tags": [
+          "Utilities"
+        ],
         "summary": "Health",
         "description": "Use this to check if the API is alive. No authentication needed.",
         "operationId": "health_health__get",
@@ -82,7 +102,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Health" }
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
               }
             }
           }
@@ -91,7 +113,9 @@
     },
     "/v1.0/contracts/": {
       "get": {
-        "tags": ["Contracts & Price Releases"],
+        "tags": [
+          "Contracts & Price Releases"
+        ],
         "summary": "Read Contracts",
         "description": "This endpoint returns all the Drewry contracts you can access according to your\ncurrent subscription.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
         "operationId": "read_contracts_v1_0_contracts__get",
@@ -108,20 +132,29 @@
           }
         },
         "security": [
-          { "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"] }
+          {
+            "OAuth2ClientCredentialsBearer": [
+              "read-drewry-freight-prices"
+            ]
+          }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/": {
       "get": {
-        "tags": ["Contracts & Price Releases"],
+        "tags": [
+          "Contracts & Price Releases"
+        ],
         "summary": "Read Contract",
         "description": "This endpoint returns the Drewry contracts if, according to your current\nsubscription, you can access it.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
         "operationId": "read_contract_v1_0_contracts__contract_ticker_symbol___get",
         "parameters": [
           {
             "required": true,
-            "schema": { "title": "Contract Ticker Symbol", "type": "string" },
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
             "name": "contract_ticker_symbol",
             "in": "path"
           }
@@ -141,26 +174,37 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
         },
         "security": [
-          { "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"] }
+          {
+            "OAuth2ClientCredentialsBearer": [
+              "read-drewry-freight-prices"
+            ]
+          }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/price-releases/": {
       "get": {
-        "tags": ["Contracts & Price Releases"],
+        "tags": [
+          "Contracts & Price Releases"
+        ],
         "summary": "Read Price Releases",
         "description": "For a specific contract, this endpoint returns all the Price Releases you can\naccess according to your current subscription.\n\n Drewry releases (publishes) prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Drewry\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
         "operationId": "read_price_releases_v1_0_contracts__contract_ticker_symbol__price_releases__get",
         "parameters": [
           {
             "required": true,
-            "schema": { "title": "Contract Ticker Symbol", "type": "string" },
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
             "name": "contract_ticker_symbol",
             "in": "path"
           }
@@ -180,26 +224,37 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
         },
         "security": [
-          { "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"] }
+          {
+            "OAuth2ClientCredentialsBearer": [
+              "read-drewry-freight-prices"
+            ]
+          }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/": {
       "get": {
-        "tags": ["Contracts & Price Releases"],
+        "tags": [
+          "Contracts & Price Releases"
+        ],
         "summary": "Read First Price Release",
         "description": "For a specific contract, this endpoint returns the first Price Releases if,\naccording to your current subscription, you can access it.\n\n Drewry releases (publishes) prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Drewry\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
         "operationId": "read_first_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_first__get",
         "parameters": [
           {
             "required": true,
-            "schema": { "title": "Contract Ticker Symbol", "type": "string" },
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
             "name": "contract_ticker_symbol",
             "in": "path"
           }
@@ -219,26 +274,37 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
         },
         "security": [
-          { "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"] }
+          {
+            "OAuth2ClientCredentialsBearer": [
+              "read-drewry-freight-prices"
+            ]
+          }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/": {
       "get": {
-        "tags": ["Contracts & Price Releases"],
+        "tags": [
+          "Contracts & Price Releases"
+        ],
         "summary": "Read Latest Price Release",
         "description": "For a specific contract, this endpoint returns the latest Price Releases if,\naccording to your current subscription, you can access it.\n\n Drewry releases (publishes) prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Drewry\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
         "operationId": "read_latest_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_latest__get",
         "parameters": [
           {
             "required": true,
-            "schema": { "title": "Contract Ticker Symbol", "type": "string" },
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
             "name": "contract_ticker_symbol",
             "in": "path"
           }
@@ -258,13 +324,19 @@
             "description": "Validation Error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
         },
         "security": [
-          { "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"] }
+          {
+            "OAuth2ClientCredentialsBearer": [
+              "read-drewry-freight-prices"
+            ]
+          }
         ]
       }
     }
@@ -288,7 +360,10 @@
             "type": "string",
             "format": "uuid"
           },
-          "is_active": { "title": "Is Active", "type": "boolean" },
+          "is_active": {
+            "title": "Is Active",
+            "type": "boolean"
+          },
           "organisation_uuid": {
             "title": "Organisation Uuid",
             "type": "string",
@@ -300,7 +375,9 @@
           },
           "default_vertical": {
             "title": "Default Vertical",
-            "enum": ["drewry-freight"],
+            "enum": [
+              "drewry-freight"
+            ],
             "type": "string"
           },
           "products": {
@@ -314,48 +391,87 @@
       },
       "AccountDetailResponse": {
         "title": "AccountDetailResponse",
-        "required": ["errors", "data"],
+        "required": [
+          "errors",
+          "data"
+        ],
         "type": "object",
         "properties": {
           "errors": {
             "title": "Errors",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Error" }
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
           },
-          "data": { "$ref": "#/components/schemas/Account" }
+          "data": {
+            "$ref": "#/components/schemas/Account"
+          }
         }
       },
       "AccountProduct": {
         "title": "AccountProduct",
-        "required": ["status"],
+        "required": [
+          "status"
+        ],
         "type": "object",
-        "properties": { "status": { "title": "Status", "type": "string" } }
+        "properties": {
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        }
       },
       "AssessedPrice": {
         "title": "AssessedPrice",
-        "required": ["value", "unit"],
+        "required": [
+          "value",
+          "unit"
+        ],
         "type": "object",
         "properties": {
-          "value": { "title": "Value", "type": "number" },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
           "unit": {
             "title": "Unit",
-            "enum": ["usdPerDay", "usdPerMMBtu"],
+            "enum": [
+              "usdPerDay",
+              "usdPerMMBtu"
+            ],
             "type": "string"
           }
         }
       },
       "AssessmentWindow": {
         "title": "AssessmentWindow",
-        "required": ["weekday", "openingTime", "closingTime"],
+        "required": [
+          "weekday",
+          "openingTime",
+          "closingTime"
+        ],
         "type": "object",
         "properties": {
           "weekday": {
             "title": "Weekday",
-            "enum": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+            "enum": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
             "type": "string"
           },
-          "openingTime": { "title": "Openingtime", "type": "string" },
-          "closingTime": { "title": "Closingtime", "type": "string" },
+          "openingTime": {
+            "title": "Openingtime",
+            "type": "string"
+          },
+          "closingTime": {
+            "title": "Closingtime",
+            "type": "string"
+          },
           "timezone": {
             "title": "Timezone",
             "type": "string",
@@ -366,11 +482,18 @@
       "Assessors": {
         "title": "Assessors",
         "type": "object",
-        "properties": { "Drewry": { "title": "Drewry", "type": "integer" } }
+        "properties": {
+          "Drewry": {
+            "title": "Drewry",
+            "type": "integer"
+          }
+        }
       },
       "Body_create_an_access_token_oauth_token__post": {
         "title": "Body_create_an_access_token_oauth_token__post",
-        "required": ["grant_type"],
+        "required": [
+          "grant_type"
+        ],
         "type": "object",
         "properties": {
           "grant_type": {
@@ -378,10 +501,23 @@
             "pattern": "client_credentials|refresh_token",
             "type": "string"
           },
-          "scope": { "title": "Scope", "type": "string", "default": "" },
-          "client_id": { "title": "Client Id", "type": "string" },
-          "client_secret": { "title": "Client Secret", "type": "string" },
-          "refresh_token": { "title": "Refresh Token", "type": "string" }
+          "scope": {
+            "title": "Scope",
+            "type": "string",
+            "default": ""
+          },
+          "client_id": {
+            "title": "Client Id",
+            "type": "string"
+          },
+          "client_secret": {
+            "title": "Client Secret",
+            "type": "string"
+          },
+          "refresh_token": {
+            "title": "Refresh Token",
+            "type": "string"
+          }
         }
       },
       "Contract": {
@@ -398,23 +534,40 @@
         ],
         "type": "object",
         "properties": {
-          "id": { "title": "Id", "type": "string" },
-          "product": {
-            "title": "Product",
-            "enum": ["drewry-freight"],
+          "id": {
+            "title": "Id",
             "type": "string"
           },
-          "tickerSymbol": { "title": "Tickersymbol", "type": "string" },
-          "fullName": { "title": "Fullname", "type": "string" },
+          "product": {
+            "title": "Product",
+            "enum": [
+              "drewry-freight"
+            ],
+            "type": "string"
+          },
+          "tickerSymbol": {
+            "title": "Tickersymbol",
+            "type": "string"
+          },
+          "fullName": {
+            "title": "Fullname",
+            "type": "string"
+          },
           "type": {
             "title": "Type",
-            "enum": ["spot", "front-month", "forward"],
+            "enum": [
+              "spot",
+              "front-month",
+              "forward"
+            ],
             "type": "string"
           },
           "assessmentFrequency": {
             "title": "Assessmentfrequency",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/AssessmentWindow" }
+            "items": {
+              "$ref": "#/components/schemas/AssessmentWindow"
+            }
           },
           "contractAssumptions": {
             "$ref": "#/components/schemas/DrewryFreightContractAssumptions"
@@ -437,49 +590,81 @@
       },
       "ContractDetailResponse": {
         "title": "ContractDetailResponse",
-        "required": ["errors", "data"],
+        "required": [
+          "errors",
+          "data"
+        ],
         "type": "object",
         "properties": {
           "errors": {
             "title": "Errors",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Error" }
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
           },
-          "data": { "$ref": "#/components/schemas/Contract" }
+          "data": {
+            "$ref": "#/components/schemas/Contract"
+          }
         }
       },
       "ContractListResponse": {
         "title": "ContractListResponse",
-        "required": ["errors", "data"],
+        "required": [
+          "errors",
+          "data"
+        ],
         "type": "object",
         "properties": {
           "errors": {
             "title": "Errors",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Error" }
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
           },
           "data": {
             "title": "Data",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Contract" }
+            "items": {
+              "$ref": "#/components/schemas/Contract"
+            }
           }
         }
       },
       "DataPoint": {
         "title": "DataPoint",
-        "required": ["index", "deliveryPeriod", "derivedPrices"],
+        "required": [
+          "index",
+          "deliveryPeriod",
+          "derivedPrices"
+        ],
         "type": "object",
         "properties": {
-          "index": { "title": "Index", "type": "integer" },
-          "deliveryPeriod": { "$ref": "#/components/schemas/DeliveryPeriod" },
-          "yourAssessedPrice": { "$ref": "#/components/schemas/AssessedPrice" },
+          "index": {
+            "title": "Index",
+            "type": "integer"
+          },
+          "deliveryPeriod": {
+            "$ref": "#/components/schemas/DeliveryPeriod"
+          },
+          "yourAssessedPrice": {
+            "$ref": "#/components/schemas/AssessedPrice"
+          },
           "derivedPrices": {
             "title": "Derivedprices",
             "type": "object",
             "additionalProperties": {
               "type": "object",
               "additionalProperties": {
-                "anyOf": [{ "type": "string" }, { "type": "integer" }]
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
               }
             }
           }
@@ -487,45 +672,85 @@
       },
       "DataRevision": {
         "title": "DataRevision",
-        "required": ["revisionNumber", "revisionPublishedAt", "dataPoints"],
+        "required": [
+          "revisionNumber",
+          "revisionPublishedAt",
+          "dataPoints"
+        ],
         "type": "object",
         "properties": {
-          "revisionNumber": { "title": "Revisionnumber", "type": "integer" },
+          "revisionNumber": {
+            "title": "Revisionnumber",
+            "type": "integer"
+          },
           "revisionPublishedAt": {
             "title": "Revisionpublishedat",
             "type": "string",
             "format": "date-time"
           },
-          "numberOfAssessors": { "$ref": "#/components/schemas/Assessors" },
+          "numberOfAssessors": {
+            "$ref": "#/components/schemas/Assessors"
+          },
           "dataPoints": {
             "title": "Datapoints",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/DataPoint" }
+            "items": {
+              "$ref": "#/components/schemas/DataPoint"
+            }
           }
         }
       },
       "DeliveryPeriod": {
         "title": "DeliveryPeriod",
-        "required": ["type", "startAt", "endAt", "name"],
+        "required": [
+          "type",
+          "startAt",
+          "endAt",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "type": {
             "title": "Type",
-            "enum": ["days", "month", "months"],
+            "enum": [
+              "days",
+              "month",
+              "months"
+            ],
             "type": "string"
           },
-          "startAt": { "title": "Startat", "type": "string", "format": "date" },
-          "endAt": { "title": "Endat", "type": "string", "format": "date" },
-          "name": { "title": "Name", "type": "string" }
+          "startAt": {
+            "title": "Startat",
+            "type": "string",
+            "format": "date"
+          },
+          "endAt": {
+            "title": "Endat",
+            "type": "string",
+            "format": "date"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
         }
       },
       "Error": {
         "title": "Error",
-        "required": ["code", "detail"],
+        "required": [
+          "code",
+          "detail"
+        ],
         "type": "object",
         "properties": {
-          "code": { "title": "Code", "type": "string" },
-          "detail": { "title": "Detail", "type": "string" }
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          }
         }
       },
       "HTTPValidationError": {
@@ -535,18 +760,26 @@
           "detail": {
             "title": "Detail",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/ValidationError" }
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
           }
         }
       },
       "Health": {
         "title": "Health",
-        "required": ["status", "serverDateTime"],
+        "required": [
+          "status",
+          "serverDateTime"
+        ],
         "type": "object",
         "properties": {
           "status": {
             "title": "Status",
-            "enum": ["ok", "Error"],
+            "enum": [
+              "ok",
+              "Error"
+            ],
             "type": "string"
           },
           "serverDateTime": {
@@ -569,21 +802,44 @@
         ],
         "type": "object",
         "properties": {
-          "vesselSizeInM3": { "title": "Vesselsizeinm3", "type": "integer" },
-          "duration": { "title": "Duration", "type": "integer" },
+          "vesselSizeInM3": {
+            "title": "Vesselsizeinm3",
+            "type": "integer"
+          },
+          "duration": {
+            "title": "Duration",
+            "type": "integer"
+          },
           "basin": {
             "title": "Basin",
-            "enum": ["pacific", "atlantic"],
+            "enum": [
+              "pacific",
+              "atlantic"
+            ],
             "type": "string"
           },
-          "deliveryPeriod": { "title": "Deliveryperiod", "type": "string" },
+          "deliveryPeriod": {
+            "title": "Deliveryperiod",
+            "type": "string"
+          },
           "currency": {
             "title": "Currency",
-            "enum": ["USD"],
+            "enum": [
+              "USD"
+            ],
             "type": "string"
           },
-          "uom": { "title": "Uom", "enum": ["usd/day"], "type": "string" },
-          "contractSize": { "title": "Contractsize", "type": "integer" }
+          "uom": {
+            "title": "Uom",
+            "enum": [
+              "usd/day"
+            ],
+            "type": "string"
+          },
+          "contractSize": {
+            "title": "Contractsize",
+            "type": "integer"
+          }
         }
       },
       "PriceRelease": {
@@ -599,8 +855,14 @@
         ],
         "type": "object",
         "properties": {
-          "id": { "title": "Id", "type": "integer" },
-          "contractId": { "title": "Contractid", "type": "string" },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "contractId": {
+            "title": "Contractid",
+            "type": "string"
+          },
           "releaseDate": {
             "title": "Releasedate",
             "type": "string",
@@ -630,46 +892,68 @@
           "data": {
             "title": "Data",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/DataRevision" }
+            "items": {
+              "$ref": "#/components/schemas/DataRevision"
+            }
           }
         }
       },
       "PriceReleaseDetailResponse": {
         "title": "PriceReleaseDetailResponse",
-        "required": ["errors", "data"],
+        "required": [
+          "errors",
+          "data"
+        ],
         "type": "object",
         "properties": {
           "errors": {
             "title": "Errors",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Error" }
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
           },
-          "data": { "$ref": "#/components/schemas/PriceRelease" }
+          "data": {
+            "$ref": "#/components/schemas/PriceRelease"
+          }
         }
       },
       "PriceReleaseListResponse": {
         "title": "PriceReleaseListResponse",
-        "required": ["errors", "data"],
+        "required": [
+          "errors",
+          "data"
+        ],
         "type": "object",
         "properties": {
           "errors": {
             "title": "Errors",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Error" }
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
           },
           "data": {
             "title": "Data",
             "type": "array",
-            "items": { "$ref": "#/components/schemas/PriceRelease" }
+            "items": {
+              "$ref": "#/components/schemas/PriceRelease"
+            }
           }
         }
       },
       "PriceReleaseReference": {
         "title": "PriceReleaseReference",
-        "required": ["id", "releaseDate"],
+        "required": [
+          "id",
+          "releaseDate"
+        ],
         "type": "object",
         "properties": {
-          "id": { "title": "Id", "type": "integer" },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
           "releaseDate": {
             "title": "Releasedate",
             "type": "string",
@@ -679,27 +963,55 @@
       },
       "Token": {
         "title": "Token",
-        "required": ["access_token", "token_type", "expires_in"],
+        "required": [
+          "access_token",
+          "token_type",
+          "expires_in"
+        ],
         "type": "object",
         "properties": {
-          "access_token": { "title": "Access Token", "type": "string" },
-          "refresh_token": { "title": "Refresh Token", "type": "string" },
-          "token_type": { "title": "Token Type", "type": "string" },
-          "expires_in": { "title": "Expires In", "type": "integer" }
+          "access_token": {
+            "title": "Access Token",
+            "type": "string"
+          },
+          "refresh_token": {
+            "title": "Refresh Token",
+            "type": "string"
+          },
+          "token_type": {
+            "title": "Token Type",
+            "type": "string"
+          },
+          "expires_in": {
+            "title": "Expires In",
+            "type": "integer"
+          }
         }
       },
       "ValidationError": {
         "title": "ValidationError",
-        "required": ["loc", "msg", "type"],
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
         "type": "object",
         "properties": {
           "loc": {
             "title": "Location",
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           },
-          "msg": { "title": "Message", "type": "string" },
-          "type": { "title": "Error Type", "type": "string" }
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
         }
       }
     },
