@@ -1,14 +1,10 @@
 {
-  "name": "drewry-benchmark-freight-index-api",
-  "version": "1.0.1",
-  "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.8",
-    "openapi": "0.0.1-security"
-  },
-  "private": true,
-  "scripts": {
-    "start": "openapi preview-docs",
-    "build": "openapi bundle -o dist",
-    "test": "openapi validate"
-  }
+  "name": "drewry-container-api",
+  "version": "1.0.7",
+  "description": "Drewry.co.uk Shipping Container Benchmark Index",
+  "main": "src/index.ts",
+  "repository": "https://github.com/drewry-uk/openapi",
+  "author": "sam <sam@freighttrust.com>",
+  "license": "Apache-2.0",
+  "private": true
 }

@@ -1,0 +1,1043 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Drewry Commodities API",
+    "description": "Freight Trust and Clearing Container Freight Index ",
+    "version": "1.0.8",
+    "contact": {},
+    "license": {
+      "name": "Apache-2.0"
+    }
+  },
+  "paths": {
+    "/oauth/token/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Create An Access Token",
+        "description": "",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string"
+            },
+            "name": "authorization",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessTokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/me/": {
+      "get": {
+        "tags": ["Authentication"],
+        "summary": "Me",
+        "description": "Return information about you",
+        "operationId": "me_v1_0_me__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetailResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/health/": {
+      "get": {
+        "tags": ["Utilities"],
+        "summary": "Health",
+        "description": "Use this to check if the API is alive. No authentication needed.",
+        "operationId": "health_health__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/_ah/warmup": {
+      "get": {
+        "tags": ["Utilities"],
+        "summary": "Warmup",
+        "description": "Warmup requests are used by the App Engine scheduler",
+        "operationId": "warmup__ah_warmup_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/v1.0/contracts/": {
+      "get": {
+        "tags": ["Contracts & Price Releases"],
+        "summary": "Read Contracts",
+        "description": "This endpoint returns all the Drewry contracts you can access according to your\ncurrent subscription.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
+        "operationId": "read_contracts_v1_0_contracts__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractListResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": ["read:container-freight-prices"]
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/v1.0/contracts/{contract_ticker_symbol}/": {
+      "get": {
+        "tags": ["Contracts & Price Releases"],
+        "summary": "Read Contract",
+        "description": "This endpoint returns the Drewry contracts if, according to your current\nsubscription, you can access it.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
+        "operationId": "read_contract_v1_0_contracts__contract_ticker_symbol___get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
+            "name": "contract_ticker_symbol",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": ["read:container-freight-prices"]
+          }
+        ]
+      }
+    },
+    "/v1.0/contracts/{contract_ticker_symbol}/price-releases/": {
+      "get": {
+        "tags": ["Contracts & Price Releases"],
+        "summary": "Read Price Releases",
+        "description": "For a specific contract, this endpoint returns all the Price Releases you can\naccess according to your current subscription.\n\nFreight Trust and Clearing Commodities releases prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Freight Trust and Clearing\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
+        "operationId": "read_price_releases_v1_0_contracts__contract_ticker_symbol__price_releases__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
+            "name": "contract_ticker_symbol",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceReleaseListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": ["read:container-freight-prices"]
+          }
+        ]
+      }
+    },
+    "/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/": {
+      "get": {
+        "tags": ["Contracts & Price Releases"],
+        "summary": "Read First Price Release",
+        "description": "For a specific contract, this endpoint returns the first Price Releases if,\naccording to your current subscription, you can access it.\n\nDrewry Commodities releases prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Freight Trust and Clearing\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
+        "operationId": "read_first_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_first__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
+            "name": "contract_ticker_symbol",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceReleaseDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": ["read:container-freight-prices"]
+          }
+        ]
+      }
+    },
+    "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/": {
+      "get": {
+        "tags": ["Contracts & Price Releases"],
+        "summary": "Read Latest Price Release",
+        "description": "### Authenticated Requests\n\nFor a specific contract, this endpoint returns the latest Price Releases if,\naccording to your current subscription, you can access it.\n\nDrewry Commodities releases prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Non Authenticated Requests\n\nThis endpoint is accessible for non authenticated requests but only for `spot`\ncontracts. In that case, it will return an outdated Price Release (N-4).\n\nYou should subscribe to our API if you would like to fetch the most recent data.\nPlease contact 'sales@freighttrust.com' to enquire about it.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Freight Trust and Clearing\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
+        "operationId": "read_latest_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_latest__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Contract Ticker Symbol",
+              "type": "string"
+            },
+            "name": "contract_ticker_symbol",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceReleaseDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2ClientCredentialsBearer": ["read:container-freight-prices"]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessTokenGrantTypeEnum": {
+        "title": "AccessTokenGrantTypeEnum",
+        "enum": ["clientCredentials", "password", "refreshToken"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "AccessTokenRequest": {
+        "title": "AccessTokenRequest",
+        "required": ["grantType"],
+        "type": "object",
+        "properties": {
+          "grantType": {
+            "$ref": "#/components/schemas/AccessTokenGrantTypeEnum"
+          },
+          "scopes": {
+            "title": "Scopes",
+            "type": "string"
+          },
+          "clientId": {
+            "title": "Clientid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientSecret": {
+            "title": "Clientsecret",
+            "type": "string"
+          },
+          "refreshToken": {
+            "title": "Refreshtoken",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "description": "Handle all the different token scenarios."
+      },
+      "Account": {
+        "title": "Account",
+        "required": ["products"],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "title": "Clientid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "title": "Userid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "organisationUuid": {
+            "title": "Organisationuuid",
+            "type": "string",
+            "format": "uuid"
+          },
+          "organisationType": {
+            "title": "Organisationtype",
+            "type": "string"
+          },
+          "organisationName": {
+            "title": "Organisationname",
+            "type": "string"
+          },
+          "firstName": {
+            "title": "Firstname",
+            "type": "string"
+          },
+          "lastName": {
+            "title": "Lastname",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "products": {
+            "title": "Products",
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AccountProduct"
+            }
+          }
+        }
+      },
+      "AccountDetailResponse": {
+        "title": "AccountDetailResponse",
+        "required": ["errors", "data"],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "data": {
+            "$ref": "#/components/schemas/Account"
+          }
+        }
+      },
+      "AccountProduct": {
+        "title": "AccountProduct",
+        "required": ["currentSubscription"],
+        "type": "object",
+        "properties": {
+          "currentSubscription": {
+            "$ref": "#/components/schemas/SubscriptionEnum"
+          }
+        }
+      },
+      "AssessedPrice": {
+        "title": "AssessedPrice",
+        "required": ["value", "unit"],
+        "type": "object",
+        "properties": {
+          "value": {
+            "title": "Value",
+            "type": "number"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/UnitEnum"
+          }
+        }
+      },
+      "AssessmentWindow": {
+        "title": "AssessmentWindow",
+        "required": ["weekday", "openingTime", "closingTime"],
+        "type": "object",
+        "properties": {
+          "weekday": {
+            "$ref": "#/components/schemas/WeekDayEnum"
+          },
+          "openingTime": {
+            "title": "Openingtime",
+            "type": "string"
+          },
+          "closingTime": {
+            "title": "Closingtime",
+            "type": "string"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string",
+            "default": "GMT"
+          }
+        }
+      },
+      "Assessors": {
+        "title": "Assessors",
+        "type": "object",
+        "properties": {
+          "fcx": {
+            "title": "FreightCX",
+            "type": "integer"
+          }
+        }
+      },
+      "BasinEnum": {
+        "title": "BasinEnum",
+        "enum": ["pacific", "atlantic"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "Contract": {
+        "title": "Contract",
+        "required": [
+          "id",
+          "product",
+          "tickerSymbol",
+          "contractGroupName",
+          "fullName",
+          "type",
+          "assessmentFrequency",
+          "contractAssumptions",
+          "lastUpdatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "product": {
+            "$ref": "#/components/schemas/PublicProductEnum"
+          },
+          "tickerSymbol": {
+            "title": "Tickersymbol",
+            "type": "string"
+          },
+          "contractGroupName": {
+            "title": "Contractgroupname",
+            "type": "string"
+          },
+          "fullName": {
+            "title": "Fullname",
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ContractTypeEnum"
+          },
+          "assessmentFrequency": {
+            "title": "Assessmentfrequency",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssessmentWindow"
+            }
+          },
+          "contractAssumptions": {
+            "$ref": "#/components/schemas/ContainerFreightContractAssumptions"
+          },
+          "lastUpdatedAt": {
+            "title": "Lastupdatedat",
+            "type": "string",
+            "format": "date-time"
+          },
+          "latestPriceRelease": {
+            "$ref": "#/components/schemas/PriceReleaseReference"
+          },
+          "nextPriceRelease": {
+            "$ref": "#/components/schemas/PriceReleaseReference"
+          },
+          "firstPriceRelease": {
+            "$ref": "#/components/schemas/PriceReleaseReference"
+          }
+        }
+      },
+      "ContractDetailResponse": {
+        "title": "ContractDetailResponse",
+        "required": ["errors", "data"],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "data": {
+            "$ref": "#/components/schemas/Contract"
+          }
+        }
+      },
+      "ContractListResponse": {
+        "title": "ContractListResponse",
+        "required": ["errors", "data"],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contract"
+            }
+          }
+        }
+      },
+      "ContractTypeEnum": {
+        "title": "ContractTypeEnum",
+        "enum": ["spot", "front-month", "forward"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "CurrencyEnum": {
+        "title": "CurrencyEnum",
+        "enum": ["USD"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "DataPoint": {
+        "title": "DataPoint",
+        "required": ["index", "deliveryPeriod", "derivedPrices"],
+        "type": "object",
+        "properties": {
+          "index": {
+            "title": "Index",
+            "type": "integer"
+          },
+          "deliveryPeriod": {
+            "$ref": "#/components/schemas/DeliveryPeriod"
+          },
+          "yourAssessedPrice": {
+            "$ref": "#/components/schemas/AssessedPrice"
+          },
+          "derivedPrices": {
+            "$ref": "#/components/schemas/DerivedPrice"
+          }
+        }
+      },
+      "DataRevision": {
+        "title": "DataRevision",
+        "required": ["revisionNumber", "revisionPublishedAt", "dataPoints"],
+        "type": "object",
+        "properties": {
+          "revisionNumber": {
+            "title": "Revisionnumber",
+            "type": "integer"
+          },
+          "revisionPublishedAt": {
+            "title": "Revisionpublishedat",
+            "type": "string",
+            "format": "date-time"
+          },
+          "numberOfAssessors": {
+            "$ref": "#/components/schemas/Assessors"
+          },
+          "dataPoints": {
+            "title": "Datapoints",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataPoint"
+            }
+          }
+        }
+      },
+      "DeliveryPeriod": {
+        "title": "DeliveryPeriod",
+        "required": ["type", "startAt", "endAt", "name"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DeliveryPeriodTypeEnum"
+          },
+          "startAt": {
+            "title": "Startat",
+            "type": "string",
+            "format": "date"
+          },
+          "endAt": {
+            "title": "Endat",
+            "type": "string",
+            "format": "date"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        }
+      },
+      "DeliveryPeriodTypeEnum": {
+        "title": "DeliveryPeriodTypeEnum",
+        "enum": ["days", "month", "months"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "DerivedPrice": {
+        "title": "DerivedPrice",
+        "required": ["usdPerDay", "usdPerMMBtu"],
+        "type": "object",
+        "properties": {
+          "usdPerDay": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "usdPerMMBtu": {
+            "$ref": "#/components/schemas/Price"
+          }
+        }
+      },
+      "Error": {
+        "title": "Error",
+        "required": ["code", "detail"],
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "Health": {
+        "title": "Health",
+        "required": ["status", "serverDateTime"],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/HealthStatusEnum"
+          },
+          "serverDateTime": {
+            "title": "Serverdatetime",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "HealthStatusEnum": {
+        "title": "HealthStatusEnum",
+        "enum": ["ok", "Error"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "ContainerFreightContractAssumptions": {
+        "title": "ContainerFreightContractAssumptions",
+        "required": [
+          "vesselSizeInM3",
+          "duration",
+          "basin",
+          "deliveryPeriod",
+          "currency",
+          "uom",
+          "contractSize"
+        ],
+        "type": "object",
+        "properties": {
+          "vesselSizeInM3": {
+            "title": "Vesselsizeinm3",
+            "type": "integer"
+          },
+          "duration": {
+            "title": "Duration",
+            "type": "integer"
+          },
+          "basin": {
+            "$ref": "#/components/schemas/BasinEnum"
+          },
+          "deliveryPeriod": {
+            "title": "Deliveryperiod",
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/CurrencyEnum"
+          },
+          "uom": {
+            "$ref": "#/components/schemas/UOMEnum"
+          },
+          "contractSize": {
+            "title": "Contractsize",
+            "type": "integer"
+          }
+        }
+      },
+      "Price": {
+        "title": "Price",
+        "type": "object",
+        "properties": {
+          "fcx": {
+            "title": "FreightCX",
+            "type": "number"
+          },
+          "fcxMin": {
+            "title": "FCXmin",
+            "type": "number"
+          },
+          "fcxMax": {
+            "title": "FCXmax",
+            "type": "number"
+          },
+          "portfolioPlayer": {
+            "title": "Portfolioplayer",
+            "type": "number"
+          },
+          "portfolioPlayerMin": {
+            "title": "Portfolioplayermin",
+            "type": "number"
+          },
+          "portfolioPlayerMax": {
+            "title": "Portfolioplayermax",
+            "type": "number"
+          }
+        }
+      },
+      "PriceRelease": {
+        "title": "PriceRelease",
+        "required": [
+          "id",
+          "contractId",
+          "releaseDate",
+          "publishedAt",
+          "assessmentWindowClosedAt",
+          "assessmentWindowOpenedAt",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "contractId": {
+            "title": "Contractid",
+            "type": "string"
+          },
+          "releaseDate": {
+            "title": "Releasedate",
+            "type": "string",
+            "format": "date"
+          },
+          "previousPriceRelease": {
+            "$ref": "#/components/schemas/PriceReleaseReference"
+          },
+          "nextPriceRelease": {
+            "$ref": "#/components/schemas/PriceReleaseReference"
+          },
+          "publishedAt": {
+            "title": "Publishedat",
+            "type": "string",
+            "format": "date-time"
+          },
+          "assessmentWindowClosedAt": {
+            "title": "Assessmentwindowclosedat",
+            "type": "string",
+            "format": "date-time"
+          },
+          "assessmentWindowOpenedAt": {
+            "title": "Assessmentwindowopenedat",
+            "type": "string",
+            "format": "date-time"
+          },
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataRevision"
+            }
+          }
+        }
+      },
+      "PriceReleaseDetailResponse": {
+        "title": "PriceReleaseDetailResponse",
+        "required": ["errors", "data"],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "data": {
+            "$ref": "#/components/schemas/PriceRelease"
+          }
+        }
+      },
+      "PriceReleaseListResponse": {
+        "title": "PriceReleaseListResponse",
+        "required": ["errors", "data"],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "title": "Errors",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PriceRelease"
+            }
+          }
+        }
+      },
+      "PriceReleaseReference": {
+        "title": "PriceReleaseReference",
+        "required": ["id", "releaseDate"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "releaseDate": {
+            "title": "Releasedate",
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "PublicProductEnum": {
+        "title": "PublicProductEnum",
+        "enum": ["container-freight"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "SubscriptionEnum": {
+        "title": "SubscriptionEnum",
+        "enum": ["basic-plan", "premium-plan", "trial-plan"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "Token": {
+        "title": "Token",
+        "required": ["accessToken", "tokenType", "expiresIn"],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "title": "Accesstoken",
+            "type": "string"
+          },
+          "refreshToken": {
+            "title": "Refreshtoken",
+            "type": "string"
+          },
+          "tokenType": {
+            "title": "Tokentype",
+            "type": "string"
+          },
+          "expiresIn": {
+            "title": "Expiresin",
+            "type": "integer"
+          }
+        }
+      },
+      "UOMEnum": {
+        "title": "UOMEnum",
+        "enum": ["usd/day"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "UnitEnum": {
+        "title": "UnitEnum",
+        "enum": ["usdPerDay", "usdPerMMBtu"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      },
+      "WeekDayEnum": {
+        "title": "WeekDayEnum",
+        "enum": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+        "type": "string",
+        "description": "An enumeration."
+      }
+    },
+    "securitySchemes": {
+      "OAuth2ClientCredentialsBearer": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "scopes": {
+              "read:container-freight-prices": "Reading Drewry Container Freight contracts and price releases"
+            },
+            "tokenUrl": "/oauth/token/"
+          }
+        }
+      }
+    },
+    "links": {},
+    "callbacks": {}
+  },
+  "externalDocs": {
+    "description": "docs.freighttrust.com",
+    "url": "docs.freighttrust.com"
+  },
+  "security": [],
+  "servers": []
+}

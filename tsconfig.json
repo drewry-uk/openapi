@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "lib": ["es6"],
+    "module": "CommonJS",
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "files": ["index.ts"],
+  "references": [
+    {
+      "path": "../openapi-framework/tsconfig.json"
+    },
+    {
+      "path": "../openapi-request-validator/tsconfig.json"
+    },
+    {
+      "path": "../openapi-response-validator/tsconfig.json"
+    },
+    {
+      "path": "../openapi-security-handler/tsconfig.json"
+    },
+    {
+      "path": "../openapi-types/tsconfig.json"
+    }
+  ]
+}
