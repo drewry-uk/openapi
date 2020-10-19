@@ -1,8 +1,0 @@
-title: AccountProduct
-required:
-  - status
-type: object
-properties:
-  status:
-    title: Status
-    type: string

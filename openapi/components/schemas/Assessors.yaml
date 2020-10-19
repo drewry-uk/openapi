@@ -1,6 +1,0 @@
-title: Assessors
-type: object
-properties:
-  Drewry:
-    title: Drewry
-    type: integer
