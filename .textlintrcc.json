@@ -1,7 +1,0 @@
-{
-  "rules": {
-    "no-start-duplicated-conjunction": {
-      "interval": 2 // interval of sentences
-    }
-  }
-}
