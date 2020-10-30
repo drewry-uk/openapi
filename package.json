@@ -2,13 +2,16 @@
   "name": "drewry-benchmark-freight-index-api",
   "version": "1.0.1",
   "dependencies": {
+    "@nestjs/common": "^7.4.4",
+    "@nestjs/swagger": "^4.6.1",
     "@redocly/openapi-cli": "^1.0.0-beta.8",
-    "openapi": "0.0.1-security"
+    "openapi": "0.0.1-security",
+    "swagger-ui-express": "^4.1.4"
   },
   "private": true,
   "scripts": {
     "start": "openapi preview-docs",
-    "build": "openapi bundle -o dist",
-    "test": "openapi validate"
+    "build": "openapi bundle src/apiV1.0.5.json -o output",
+    "test": "openapi validate openapi/openapi.json"
   }
 }
