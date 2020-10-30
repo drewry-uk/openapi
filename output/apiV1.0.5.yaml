@@ -264,18 +264,18 @@ paths:
                 #/components/schemas/Body_create_an_access_token_oauth_token__post
         required: true
       responses:
-        '201':
+        "201":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Token'
-        '422':
+                $ref: "#/components/schemas/Token"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /v1.0/me/:
     get:
       tags:
@@ -284,12 +284,12 @@ paths:
       description: Return information about user
       operationId: user_v1_0_me__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccountDetailResponse'
+                $ref: "#/components/schemas/AccountDetailResponse"
       security:
         - OAuth2ClientCredentialsBearer: []
   /health/:
@@ -300,12 +300,12 @@ paths:
       description: Use this to check if the API is alive. No authentication needed.
       operationId: health_health__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Health'
+                $ref: "#/components/schemas/Health"
   /v1.0/contracts/:
     get:
       tags:
@@ -322,16 +322,16 @@ paths:
         details.
       operationId: read_contracts_v1_0_contracts__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContractListResponse'
+                $ref: "#/components/schemas/ContractListResponse"
       security:
         - OAuth2ClientCredentialsBearer:
             - read-drewry-freight-prices
-  '/v1.0/contracts/{contract_ticker_symbol}/':
+  "/v1.0/contracts/{contract_ticker_symbol}/":
     get:
       tags:
         - Contracts & Price Releases
@@ -353,22 +353,22 @@ paths:
           name: contract_ticker_symbol
           in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContractDetailResponse'
-        '422':
+                $ref: "#/components/schemas/ContractDetailResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
         - OAuth2ClientCredentialsBearer:
             - read-drewry-freight-prices
-  '/v1.0/contracts/{contract_ticker_symbol}/price-releases/':
+  "/v1.0/contracts/{contract_ticker_symbol}/price-releases/":
     get:
       tags:
         - Contracts & Price Releases
@@ -412,22 +412,22 @@ paths:
           name: contract_ticker_symbol
           in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PriceReleaseListResponse'
-        '422':
+                $ref: "#/components/schemas/PriceReleaseListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
         - OAuth2ClientCredentialsBearer:
             - read-drewry-freight-prices
-  '/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/':
+  "/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/":
     get:
       tags:
         - Contracts & Price Releases
@@ -471,22 +471,22 @@ paths:
           name: contract_ticker_symbol
           in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PriceReleaseDetailResponse'
-        '422':
+                $ref: "#/components/schemas/PriceReleaseDetailResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
         - OAuth2ClientCredentialsBearer:
             - read-drewry-freight-prices
-  '/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/':
+  "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/":
     get:
       tags:
         - Contracts & Price Releases
@@ -530,18 +530,18 @@ paths:
           name: contract_ticker_symbol
           in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PriceReleaseDetailResponse'
-        '422':
+                $ref: "#/components/schemas/PriceReleaseDetailResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
         - OAuth2ClientCredentialsBearer:
             - read-drewry-freight-prices
@@ -581,7 +581,7 @@ components:
           title: Products
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/AccountProduct'
+            $ref: "#/components/schemas/AccountProduct"
     AccountDetailResponse:
       title: AccountDetailResponse
       required:
@@ -593,9 +593,9 @@ components:
           title: Errors
           type: array
           items:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
         data:
-          $ref: '#/components/schemas/Account'
+          $ref: "#/components/schemas/Account"
     AccountProduct:
       title: AccountProduct
       required:
@@ -668,7 +668,7 @@ components:
         scope:
           title: Scope
           type: string
-          default: ''
+          default: ""
         client_id:
           title: Client Id
           type: string
@@ -716,19 +716,19 @@ components:
           title: Assessmentfrequency
           type: array
           items:
-            $ref: '#/components/schemas/AssessmentWindow'
+            $ref: "#/components/schemas/AssessmentWindow"
         contractAssumptions:
-          $ref: '#/components/schemas/DrewryFreightContractAssumptions'
+          $ref: "#/components/schemas/DrewryFreightContractAssumptions"
         lastUpdatedAt:
           title: Lastupdatedat
           type: string
           format: date-time
         latestPriceRelease:
-          $ref: '#/components/schemas/PriceReleaseReference'
+          $ref: "#/components/schemas/PriceReleaseReference"
         nextPriceRelease:
-          $ref: '#/components/schemas/PriceReleaseReference'
+          $ref: "#/components/schemas/PriceReleaseReference"
         firstPriceRelease:
-          $ref: '#/components/schemas/PriceReleaseReference'
+          $ref: "#/components/schemas/PriceReleaseReference"
     ContractDetailResponse:
       title: ContractDetailResponse
       required:
@@ -740,9 +740,9 @@ components:
           title: Errors
           type: array
           items:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
         data:
-          $ref: '#/components/schemas/Contract'
+          $ref: "#/components/schemas/Contract"
     ContractListResponse:
       title: ContractListResponse
       required:
@@ -754,12 +754,12 @@ components:
           title: Errors
           type: array
           items:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
         data:
           title: Data
           type: array
           items:
-            $ref: '#/components/schemas/Contract'
+            $ref: "#/components/schemas/Contract"
     DataPoint:
       title: DataPoint
       required:
@@ -772,9 +772,9 @@ components:
           title: Index
           type: integer
         deliveryPeriod:
-          $ref: '#/components/schemas/DeliveryPeriod'
+          $ref: "#/components/schemas/DeliveryPeriod"
         yourAssessedPrice:
-          $ref: '#/components/schemas/AssessedPrice'
+          $ref: "#/components/schemas/AssessedPrice"
         derivedPrices:
           title: Derivedprices
           type: object
@@ -800,12 +800,12 @@ components:
           type: string
           format: date-time
         numberOfAssessors:
-          $ref: '#/components/schemas/Assessors'
+          $ref: "#/components/schemas/Assessors"
         dataPoints:
           title: Datapoints
           type: array
           items:
-            $ref: '#/components/schemas/DataPoint'
+            $ref: "#/components/schemas/DataPoint"
     DeliveryPeriod:
       title: DeliveryPeriod
       required:
@@ -854,7 +854,7 @@ components:
           title: Detail
           type: array
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
     Health:
       title: Health
       required:
@@ -935,9 +935,9 @@ components:
           type: string
           format: date
         previousPriceRelease:
-          $ref: '#/components/schemas/PriceReleaseReference'
+          $ref: "#/components/schemas/PriceReleaseReference"
         nextPriceRelease:
-          $ref: '#/components/schemas/PriceReleaseReference'
+          $ref: "#/components/schemas/PriceReleaseReference"
         publishedAt:
           title: Publishedat
           type: string
@@ -954,7 +954,7 @@ components:
           title: Data
           type: array
           items:
-            $ref: '#/components/schemas/DataRevision'
+            $ref: "#/components/schemas/DataRevision"
     PriceReleaseDetailResponse:
       title: PriceReleaseDetailResponse
       required:
@@ -966,9 +966,9 @@ components:
           title: Errors
           type: array
           items:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
         data:
-          $ref: '#/components/schemas/PriceRelease'
+          $ref: "#/components/schemas/PriceRelease"
     PriceReleaseListResponse:
       title: PriceReleaseListResponse
       required:
@@ -980,12 +980,12 @@ components:
           title: Errors
           type: array
           items:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
         data:
           title: Data
           type: array
           items:
-            $ref: '#/components/schemas/PriceRelease'
+            $ref: "#/components/schemas/PriceRelease"
     PriceReleaseReference:
       title: PriceReleaseReference
       required:

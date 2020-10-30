@@ -2,7 +2,8 @@
 openapi: 3.0.2
 info:
   title: Drewry Benchmark Freight Index API
-  description: "\n<h2>General Information</h2>\n<p>\n    You can find general information
+  description:
+    "\n<h2>General Information</h2>\n<p>\n    You can find general information
     here:\n    <a href=\"https://developers.freighttrust.com\">\n        https://developers.freighttrust.com/\n
     \   </a>\n</p>\n\n<h2>Maintenance Window</h2>\n<p>\n    No maintenance scheduled.\n</p>\n\n<h2>URLs</h2>\n\nAPI
     Base URL is <b>https://api.commodityprotocol.com</b>.\n\nFull URL example: https://api.freighttrust.com/v1.0/contracts/\n\n<h2>Versioning</h2>\n<p>\n
@@ -56,7 +57,7 @@ paths:
   "/oauth/token/":
     post:
       tags:
-      - Authentication
+        - Authentication
       summary: Create An Access Token
       description: |-
         Get a new access_token. Access tokens are the thing that applications use to make
@@ -94,12 +95,12 @@ paths:
         token will continue to work when the new access token expires.
       operationId: create_an_access_token_oauth_token__post
       parameters:
-      - required: false
-        schema:
-          title: Authorization
-          type: string
-        name: authorization
-        in: header
+        - required: false
+          schema:
+            title: Authorization
+            type: string
+          name: authorization
+          in: header
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -107,13 +108,13 @@ paths:
               "$ref": "#/components/schemas/Body_create_an_access_token_oauth_token__post"
         required: true
       responses:
-        '201':
+        "201":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Token"
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
@@ -122,28 +123,28 @@ paths:
   "/v1.0/me/":
     get:
       tags:
-      - Authentication
+        - Authentication
       summary: Me
       description: Return information about user
       operationId: me_v1_0_me__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/AccountDetailResponse"
       security:
-      - OAuth2ClientCredentialsBearer: []
+        - OAuth2ClientCredentialsBearer: []
   "/health/":
     get:
       tags:
-      - Utilities
+        - Utilities
       summary: Health
       description: Use this to check if the API is alive. No authentication needed.
       operationId: health_health__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -152,7 +153,7 @@ paths:
   "/v1.0/contracts/":
     get:
       tags:
-      - Contracts & Price Releases
+        - Contracts & Price Releases
       summary: Read Contracts
       description: |-
         This endpoint returns all the Drewry contracts you can access according to your
@@ -161,19 +162,19 @@ paths:
         Please refer to our Methodology and Specifications Guide for more details.
       operationId: read_contracts_v1_0_contracts__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ContractListResponse"
       security:
-      - OAuth2ClientCredentialsBearer:
-        - read-drewry-freight-prices
+        - OAuth2ClientCredentialsBearer:
+            - read-drewry-freight-prices
   "/v1.0/contracts/{contract_ticker_symbol}/":
     get:
       tags:
-      - Contracts & Price Releases
+        - Contracts & Price Releases
       summary: Read Contract
       description: |-
         This endpoint returns the Drewry contracts if, according to your current
@@ -182,32 +183,32 @@ paths:
         Please refer to our Methodology and Specifications Guide for more details.
       operationId: read_contract_v1_0_contracts__contract_ticker_symbol___get
       parameters:
-      - required: true
-        schema:
-          title: Contract Ticker Symbol
-          type: string
-        name: contract_ticker_symbol
-        in: path
+        - required: true
+          schema:
+            title: Contract Ticker Symbol
+            type: string
+          name: contract_ticker_symbol
+          in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ContractDetailResponse"
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/HTTPValidationError"
       security:
-      - OAuth2ClientCredentialsBearer:
-        - read-drewry-freight-prices
+        - OAuth2ClientCredentialsBearer:
+            - read-drewry-freight-prices
   "/v1.0/contracts/{contract_ticker_symbol}/price-releases/":
     get:
       tags:
-      - Contracts & Price Releases
+        - Contracts & Price Releases
       summary: Read Price Releases
       description: |-
         For a specific contract, this endpoint returns all the Price Releases you can
@@ -226,32 +227,32 @@ paths:
         users with an explanation as to why a correction was implemented.
       operationId: read_price_releases_v1_0_contracts__contract_ticker_symbol__price_releases__get
       parameters:
-      - required: true
-        schema:
-          title: Contract Ticker Symbol
-          type: string
-        name: contract_ticker_symbol
-        in: path
+        - required: true
+          schema:
+            title: Contract Ticker Symbol
+            type: string
+          name: contract_ticker_symbol
+          in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/PriceReleaseListResponse"
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/HTTPValidationError"
       security:
-      - OAuth2ClientCredentialsBearer:
-        - read-drewry-freight-prices
+        - OAuth2ClientCredentialsBearer:
+            - read-drewry-freight-prices
   "/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/":
     get:
       tags:
-      - Contracts & Price Releases
+        - Contracts & Price Releases
       summary: Read First Price Release
       description: |-
         For a specific contract, this endpoint returns the first Price Releases if,
@@ -270,32 +271,32 @@ paths:
         users with an explanation as to why a correction was implemented.
       operationId: read_first_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_first__get
       parameters:
-      - required: true
-        schema:
-          title: Contract Ticker Symbol
-          type: string
-        name: contract_ticker_symbol
-        in: path
+        - required: true
+          schema:
+            title: Contract Ticker Symbol
+            type: string
+          name: contract_ticker_symbol
+          in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/PriceReleaseDetailResponse"
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/HTTPValidationError"
       security:
-      - OAuth2ClientCredentialsBearer:
-        - read-drewry-freight-prices
+        - OAuth2ClientCredentialsBearer:
+            - read-drewry-freight-prices
   "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/":
     get:
       tags:
-      - Contracts & Price Releases
+        - Contracts & Price Releases
       summary: Read Latest Price Release
       description: |-
         For a specific contract, this endpoint returns the latest Price Releases if,
@@ -314,39 +315,39 @@ paths:
         users with an explanation as to why a correction was implemented.
       operationId: read_latest_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_latest__get
       parameters:
-      - required: true
-        schema:
-          title: Contract Ticker Symbol
-          type: string
-        name: contract_ticker_symbol
-        in: path
+        - required: true
+          schema:
+            title: Contract Ticker Symbol
+            type: string
+          name: contract_ticker_symbol
+          in: path
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/PriceReleaseDetailResponse"
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/HTTPValidationError"
       security:
-      - OAuth2ClientCredentialsBearer:
-        - read-drewry-freight-prices
+        - OAuth2ClientCredentialsBearer:
+            - read-drewry-freight-prices
 components:
   schemas:
     Account:
       title: Account
       required:
-      - client_id
-      - is_active
-      - organisation_uuid
-      - organisation_type
-      - default_vertical
-      - products
+        - client_id
+        - is_active
+        - organisation_uuid
+        - organisation_type
+        - default_vertical
+        - products
       type: object
       properties:
         client_id:
@@ -366,7 +367,7 @@ components:
         default_vertical:
           title: Default Vertical
           enum:
-          - drewry-freight
+            - drewry-freight
           type: string
         products:
           title: Products
@@ -376,8 +377,8 @@ components:
     AccountDetailResponse:
       title: AccountDetailResponse
       required:
-      - errors
-      - data
+        - errors
+        - data
       type: object
       properties:
         errors:
@@ -390,7 +391,7 @@ components:
     AccountProduct:
       title: AccountProduct
       required:
-      - status
+        - status
       type: object
       properties:
         status:
@@ -399,8 +400,8 @@ components:
     AssessedPrice:
       title: AssessedPrice
       required:
-      - value
-      - unit
+        - value
+        - unit
       type: object
       properties:
         value:
@@ -409,25 +410,25 @@ components:
         unit:
           title: Unit
           enum:
-          - usdPerDay
-          - usdPerMMBtu
+            - usdPerDay
+            - usdPerMMBtu
           type: string
     AssessmentWindow:
       title: AssessmentWindow
       required:
-      - weekday
-      - openingTime
-      - closingTime
+        - weekday
+        - openingTime
+        - closingTime
       type: object
       properties:
         weekday:
           title: Weekday
           enum:
-          - monday
-          - tuesday
-          - wednesday
-          - thursday
-          - friday
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
           type: string
         openingTime:
           title: Openingtime
@@ -449,7 +450,7 @@ components:
     Body_create_an_access_token_oauth_token__post:
       title: Body_create_an_access_token_oauth_token__post
       required:
-      - grant_type
+        - grant_type
       type: object
       properties:
         grant_type:
@@ -459,7 +460,7 @@ components:
         scope:
           title: Scope
           type: string
-          default: ''
+          default: ""
         client_id:
           title: Client Id
           type: string
@@ -472,14 +473,14 @@ components:
     Contract:
       title: Contract
       required:
-      - id
-      - product
-      - tickerSymbol
-      - fullName
-      - type
-      - assessmentFrequency
-      - contractAssumptions
-      - lastUpdatedAt
+        - id
+        - product
+        - tickerSymbol
+        - fullName
+        - type
+        - assessmentFrequency
+        - contractAssumptions
+        - lastUpdatedAt
       type: object
       properties:
         id:
@@ -488,7 +489,7 @@ components:
         product:
           title: Product
           enum:
-          - drewry-freight
+            - drewry-freight
           type: string
         tickerSymbol:
           title: Tickersymbol
@@ -499,9 +500,9 @@ components:
         type:
           title: Type
           enum:
-          - spot
-          - front-month
-          - forward
+            - spot
+            - front-month
+            - forward
           type: string
         assessmentFrequency:
           title: Assessmentfrequency
@@ -523,8 +524,8 @@ components:
     ContractDetailResponse:
       title: ContractDetailResponse
       required:
-      - errors
-      - data
+        - errors
+        - data
       type: object
       properties:
         errors:
@@ -537,8 +538,8 @@ components:
     ContractListResponse:
       title: ContractListResponse
       required:
-      - errors
-      - data
+        - errors
+        - data
       type: object
       properties:
         errors:
@@ -554,9 +555,9 @@ components:
     DataPoint:
       title: DataPoint
       required:
-      - index
-      - deliveryPeriod
-      - derivedPrices
+        - index
+        - deliveryPeriod
+        - derivedPrices
       type: object
       properties:
         index:
@@ -573,14 +574,14 @@ components:
             type: object
             additionalProperties:
               anyOf:
-              - type: string
-              - type: integer
+                - type: string
+                - type: integer
     DataRevision:
       title: DataRevision
       required:
-      - revisionNumber
-      - revisionPublishedAt
-      - dataPoints
+        - revisionNumber
+        - revisionPublishedAt
+        - dataPoints
       type: object
       properties:
         revisionNumber:
@@ -600,18 +601,18 @@ components:
     DeliveryPeriod:
       title: DeliveryPeriod
       required:
-      - type
-      - startAt
-      - endAt
-      - name
+        - type
+        - startAt
+        - endAt
+        - name
       type: object
       properties:
         type:
           title: Type
           enum:
-          - days
-          - month
-          - months
+            - days
+            - month
+            - months
           type: string
         startAt:
           title: Startat
@@ -627,8 +628,8 @@ components:
     Error:
       title: Error
       required:
-      - code
-      - detail
+        - code
+        - detail
       type: object
       properties:
         code:
@@ -649,15 +650,15 @@ components:
     Health:
       title: Health
       required:
-      - status
-      - serverDateTime
+        - status
+        - serverDateTime
       type: object
       properties:
         status:
           title: Status
           enum:
-          - ok
-          - Error
+            - ok
+            - Error
           type: string
         serverDateTime:
           title: Serverdatetime
@@ -666,13 +667,13 @@ components:
     DrewryFreightContractAssumptions:
       title: DrewryFreightContractAssumptions
       required:
-      - vesselSizeInM3
-      - duration
-      - basin
-      - deliveryPeriod
-      - currency
-      - uom
-      - contractSize
+        - vesselSizeInM3
+        - duration
+        - basin
+        - deliveryPeriod
+        - currency
+        - uom
+        - contractSize
       type: object
       properties:
         vesselSizeInM3:
@@ -684,8 +685,8 @@ components:
         basin:
           title: Basin
           enum:
-          - pacific
-          - atlantic
+            - pacific
+            - atlantic
           type: string
         deliveryPeriod:
           title: Deliveryperiod
@@ -693,12 +694,12 @@ components:
         currency:
           title: Currency
           enum:
-          - USD
+            - USD
           type: string
         uom:
           title: Uom
           enum:
-          - usd/day
+            - usd/day
           type: string
         contractSize:
           title: Contractsize
@@ -706,13 +707,13 @@ components:
     PriceRelease:
       title: PriceRelease
       required:
-      - id
-      - contractId
-      - releaseDate
-      - publishedAt
-      - assessmentWindowClosedAt
-      - assessmentWindowOpenedAt
-      - data
+        - id
+        - contractId
+        - releaseDate
+        - publishedAt
+        - assessmentWindowClosedAt
+        - assessmentWindowOpenedAt
+        - data
       type: object
       properties:
         id:
@@ -749,8 +750,8 @@ components:
     PriceReleaseDetailResponse:
       title: PriceReleaseDetailResponse
       required:
-      - errors
-      - data
+        - errors
+        - data
       type: object
       properties:
         errors:
@@ -763,8 +764,8 @@ components:
     PriceReleaseListResponse:
       title: PriceReleaseListResponse
       required:
-      - errors
-      - data
+        - errors
+        - data
       type: object
       properties:
         errors:
@@ -780,8 +781,8 @@ components:
     PriceReleaseReference:
       title: PriceReleaseReference
       required:
-      - id
-      - releaseDate
+        - id
+        - releaseDate
       type: object
       properties:
         id:
@@ -794,9 +795,9 @@ components:
     Token:
       title: Token
       required:
-      - access_token
-      - token_type
-      - expires_in
+        - access_token
+        - token_type
+        - expires_in
       type: object
       properties:
         access_token:
@@ -814,9 +815,9 @@ components:
     ValidationError:
       title: ValidationError
       required:
-      - loc
-      - msg
-      - type
+        - loc
+        - msg
+        - type
       type: object
       properties:
         loc:
@@ -836,6 +837,7 @@ components:
       flows:
         clientCredentials:
           scopes:
-            read-drewry-freight-prices: Access information about Drewry Drewry Freight
+            read-drewry-freight-prices:
+              Access information about Drewry Drewry Freight
               contracts and price releases
           tokenUrl: "/oauth/token"

@@ -11,9 +11,7 @@
   "paths": {
     "/oauth/token/": {
       "post": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "Create An Access Token",
         "description": "Get a new access_token. Access tokens are the thing that applications use to make\nAPI requests. Access tokens must be kept confidential in storage.\n\n### Getting an Access Token\n\n* Method: POST\n* Body\n    * `grant_type` (required) = \"client_credentials\".\n    * `scope` (optional)\n* Headers\n    * `Authorization`: The \"Basic\" HTTP authentication scheme is defined in RFC 7617,\n    which transmits credentials as `client_id:client_secret` pairs, encoded using\n    base64  .\n\nA successful response will contain these keys: `access_token`, `token_type`,\n`expires_in` (duration of time in seconds the access token is granted for) and\n`refresh_token`.\n\n### Refreshing an Expired Access Token\n\nWith the `refresh_token`, as the access token will expire, you’ll be able to get a\nnew one having to specify the scope variable.\n\n* Method: POST\n* Body\n    * `grant_type` (required) = \"refresh_token\".\n* Headers\n    * `Authorization`: The \"Basic\" HTTP authentication scheme is defined in RFC 7617,\n    which transmits credentials as client_id/client_secret pairs, encoded using\n    base64 (`client_id:client_secret`).\n\nIf you do not get back a new refresh token, then it means your existing refresh\ntoken will continue to work when the new access token expires.",
         "operationId": "create_an_access_token_oauth_token__post",
@@ -64,9 +62,7 @@
     },
     "/v1.0/me/": {
       "get": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "User",
         "description": "Return information about user",
         "operationId": "user_v1_0_me__get",
@@ -91,9 +87,7 @@
     },
     "/health/": {
       "get": {
-        "tags": [
-          "Utilities"
-        ],
+        "tags": ["Utilities"],
         "summary": "Health",
         "description": "Use this to check if the API is alive. No authentication needed.",
         "operationId": "health_health__get",
@@ -113,9 +107,7 @@
     },
     "/v1.0/contracts/": {
       "get": {
-        "tags": [
-          "Contracts & Price Releases"
-        ],
+        "tags": ["Contracts & Price Releases"],
         "summary": "Read Contracts",
         "description": "This endpoint returns all the Drewry contracts you can access according to your\ncurrent subscription.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
         "operationId": "read_contracts_v1_0_contracts__get",
@@ -133,18 +125,14 @@
         },
         "security": [
           {
-            "OAuth2ClientCredentialsBearer": [
-              "read-drewry-freight-prices"
-            ]
+            "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"]
           }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/": {
       "get": {
-        "tags": [
-          "Contracts & Price Releases"
-        ],
+        "tags": ["Contracts & Price Releases"],
         "summary": "Read Contract",
         "description": "This endpoint returns the Drewry contracts if, according to your current\nsubscription, you can access it.\n\nPlease refer to our Methodology and Specifications Guide for more details.",
         "operationId": "read_contract_v1_0_contracts__contract_ticker_symbol___get",
@@ -183,18 +171,14 @@
         },
         "security": [
           {
-            "OAuth2ClientCredentialsBearer": [
-              "read-drewry-freight-prices"
-            ]
+            "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"]
           }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/price-releases/": {
       "get": {
-        "tags": [
-          "Contracts & Price Releases"
-        ],
+        "tags": ["Contracts & Price Releases"],
         "summary": "Read Price Releases",
         "description": "For a specific contract, this endpoint returns all the Price Releases you can\naccess according to your current subscription.\n\n Drewry releases (publishes) prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Drewry\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
         "operationId": "read_price_releases_v1_0_contracts__contract_ticker_symbol__price_releases__get",
@@ -233,18 +217,14 @@
         },
         "security": [
           {
-            "OAuth2ClientCredentialsBearer": [
-              "read-drewry-freight-prices"
-            ]
+            "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"]
           }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/price-releases/first/": {
       "get": {
-        "tags": [
-          "Contracts & Price Releases"
-        ],
+        "tags": ["Contracts & Price Releases"],
         "summary": "Read First Price Release",
         "description": "For a specific contract, this endpoint returns the first Price Releases if,\naccording to your current subscription, you can access it.\n\n Drewry releases (publishes) prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Drewry\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
         "operationId": "read_first_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_first__get",
@@ -283,18 +263,14 @@
         },
         "security": [
           {
-            "OAuth2ClientCredentialsBearer": [
-              "read-drewry-freight-prices"
-            ]
+            "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"]
           }
         ]
       }
     },
     "/v1.0/contracts/{contract_ticker_symbol}/price-releases/latest/": {
       "get": {
-        "tags": [
-          "Contracts & Price Releases"
-        ],
+        "tags": ["Contracts & Price Releases"],
         "summary": "Read Latest Price Release",
         "description": "For a specific contract, this endpoint returns the latest Price Releases if,\naccording to your current subscription, you can access it.\n\n Drewry releases (publishes) prices several times per week, which is called\nPrice Release. Please read our Methodology and Specifications Guide for more details.\n\n### Data Revision Policy\n\nDrewry will on occasion publish corrections to price assessments after the\npublication date. These errors may arise from clerical mistakes or miscalculation\nerrors amongst other reasons. Any changes or revisions will take place\nwithin two working days following the closing of the submission window. Drewry\nwill send a notification of any changes to its previous assessments via email to all\nusers with an explanation as to why a correction was implemented.",
         "operationId": "read_latest_price_release_v1_0_contracts__contract_ticker_symbol__price_releases_latest__get",
@@ -333,9 +309,7 @@
         },
         "security": [
           {
-            "OAuth2ClientCredentialsBearer": [
-              "read-drewry-freight-prices"
-            ]
+            "OAuth2ClientCredentialsBearer": ["read-drewry-freight-prices"]
           }
         ]
       }
@@ -375,9 +349,7 @@
           },
           "default_vertical": {
             "title": "Default Vertical",
-            "enum": [
-              "drewry-freight"
-            ],
+            "enum": ["drewry-freight"],
             "type": "string"
           },
           "products": {
@@ -391,10 +363,7 @@
       },
       "AccountDetailResponse": {
         "title": "AccountDetailResponse",
-        "required": [
-          "errors",
-          "data"
-        ],
+        "required": ["errors", "data"],
         "type": "object",
         "properties": {
           "errors": {
@@ -411,9 +380,7 @@
       },
       "AccountProduct": {
         "title": "AccountProduct",
-        "required": [
-          "status"
-        ],
+        "required": ["status"],
         "type": "object",
         "properties": {
           "status": {
@@ -424,10 +391,7 @@
       },
       "AssessedPrice": {
         "title": "AssessedPrice",
-        "required": [
-          "value",
-          "unit"
-        ],
+        "required": ["value", "unit"],
         "type": "object",
         "properties": {
           "value": {
@@ -436,32 +400,19 @@
           },
           "unit": {
             "title": "Unit",
-            "enum": [
-              "usdPerDay",
-              "usdPerMMBtu"
-            ],
+            "enum": ["usdPerDay", "usdPerMMBtu"],
             "type": "string"
           }
         }
       },
       "AssessmentWindow": {
         "title": "AssessmentWindow",
-        "required": [
-          "weekday",
-          "openingTime",
-          "closingTime"
-        ],
+        "required": ["weekday", "openingTime", "closingTime"],
         "type": "object",
         "properties": {
           "weekday": {
             "title": "Weekday",
-            "enum": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
+            "enum": ["monday", "tuesday", "wednesday", "thursday", "friday"],
             "type": "string"
           },
           "openingTime": {
@@ -491,9 +442,7 @@
       },
       "Body_create_an_access_token_oauth_token__post": {
         "title": "Body_create_an_access_token_oauth_token__post",
-        "required": [
-          "grant_type"
-        ],
+        "required": ["grant_type"],
         "type": "object",
         "properties": {
           "grant_type": {
@@ -540,9 +489,7 @@
           },
           "product": {
             "title": "Product",
-            "enum": [
-              "drewry-freight"
-            ],
+            "enum": ["drewry-freight"],
             "type": "string"
           },
           "tickerSymbol": {
@@ -555,11 +502,7 @@
           },
           "type": {
             "title": "Type",
-            "enum": [
-              "spot",
-              "front-month",
-              "forward"
-            ],
+            "enum": ["spot", "front-month", "forward"],
             "type": "string"
           },
           "assessmentFrequency": {
@@ -590,10 +533,7 @@
       },
       "ContractDetailResponse": {
         "title": "ContractDetailResponse",
-        "required": [
-          "errors",
-          "data"
-        ],
+        "required": ["errors", "data"],
         "type": "object",
         "properties": {
           "errors": {
@@ -610,10 +550,7 @@
       },
       "ContractListResponse": {
         "title": "ContractListResponse",
-        "required": [
-          "errors",
-          "data"
-        ],
+        "required": ["errors", "data"],
         "type": "object",
         "properties": {
           "errors": {
@@ -634,11 +571,7 @@
       },
       "DataPoint": {
         "title": "DataPoint",
-        "required": [
-          "index",
-          "deliveryPeriod",
-          "derivedPrices"
-        ],
+        "required": ["index", "deliveryPeriod", "derivedPrices"],
         "type": "object",
         "properties": {
           "index": {
@@ -672,11 +605,7 @@
       },
       "DataRevision": {
         "title": "DataRevision",
-        "required": [
-          "revisionNumber",
-          "revisionPublishedAt",
-          "dataPoints"
-        ],
+        "required": ["revisionNumber", "revisionPublishedAt", "dataPoints"],
         "type": "object",
         "properties": {
           "revisionNumber": {
@@ -702,21 +631,12 @@
       },
       "DeliveryPeriod": {
         "title": "DeliveryPeriod",
-        "required": [
-          "type",
-          "startAt",
-          "endAt",
-          "name"
-        ],
+        "required": ["type", "startAt", "endAt", "name"],
         "type": "object",
         "properties": {
           "type": {
             "title": "Type",
-            "enum": [
-              "days",
-              "month",
-              "months"
-            ],
+            "enum": ["days", "month", "months"],
             "type": "string"
           },
           "startAt": {
@@ -737,10 +657,7 @@
       },
       "Error": {
         "title": "Error",
-        "required": [
-          "code",
-          "detail"
-        ],
+        "required": ["code", "detail"],
         "type": "object",
         "properties": {
           "code": {
@@ -768,18 +685,12 @@
       },
       "Health": {
         "title": "Health",
-        "required": [
-          "status",
-          "serverDateTime"
-        ],
+        "required": ["status", "serverDateTime"],
         "type": "object",
         "properties": {
           "status": {
             "title": "Status",
-            "enum": [
-              "ok",
-              "Error"
-            ],
+            "enum": ["ok", "Error"],
             "type": "string"
           },
           "serverDateTime": {
@@ -812,10 +723,7 @@
           },
           "basin": {
             "title": "Basin",
-            "enum": [
-              "pacific",
-              "atlantic"
-            ],
+            "enum": ["pacific", "atlantic"],
             "type": "string"
           },
           "deliveryPeriod": {
@@ -824,16 +732,12 @@
           },
           "currency": {
             "title": "Currency",
-            "enum": [
-              "USD"
-            ],
+            "enum": ["USD"],
             "type": "string"
           },
           "uom": {
             "title": "Uom",
-            "enum": [
-              "usd/day"
-            ],
+            "enum": ["usd/day"],
             "type": "string"
           },
           "contractSize": {
@@ -900,10 +804,7 @@
       },
       "PriceReleaseDetailResponse": {
         "title": "PriceReleaseDetailResponse",
-        "required": [
-          "errors",
-          "data"
-        ],
+        "required": ["errors", "data"],
         "type": "object",
         "properties": {
           "errors": {
@@ -920,10 +821,7 @@
       },
       "PriceReleaseListResponse": {
         "title": "PriceReleaseListResponse",
-        "required": [
-          "errors",
-          "data"
-        ],
+        "required": ["errors", "data"],
         "type": "object",
         "properties": {
           "errors": {
@@ -944,10 +842,7 @@
       },
       "PriceReleaseReference": {
         "title": "PriceReleaseReference",
-        "required": [
-          "id",
-          "releaseDate"
-        ],
+        "required": ["id", "releaseDate"],
         "type": "object",
         "properties": {
           "id": {
@@ -963,11 +858,7 @@
       },
       "Token": {
         "title": "Token",
-        "required": [
-          "access_token",
-          "token_type",
-          "expires_in"
-        ],
+        "required": ["access_token", "token_type", "expires_in"],
         "type": "object",
         "properties": {
           "access_token": {
@@ -990,11 +881,7 @@
       },
       "ValidationError": {
         "title": "ValidationError",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
+        "required": ["loc", "msg", "type"],
         "type": "object",
         "properties": {
           "loc": {
