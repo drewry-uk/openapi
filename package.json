@@ -1,6 +1,6 @@
 {
   "name": "drewry-benchmark-freight-index-api",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "dependencies": {
     "@nestjs/common": "^7.4.4",
     "@nestjs/swagger": "^4.6.1",
